@@ -40,23 +40,24 @@ export const hours = [
 
 export type Service = {
   name: string;
-  price: number; // in Rupiah
   duration: number; // minutes
   description: string;
 };
 
-// PLACEHOLDER — confirm his real prices.
+// No prices on the site: Cuplis works at Dibawah Pohon Barber, which sets the prices.
+// PLACEHOLDER — confirm which services he offers and how long they take.
 export const services: Service[] = [
-  { name: "Signature Cut", price: 150000, duration: 45, description: "Konsultasi, potong, keramas, dan styling. Bisa fade, taper, atau gunting." },
-  { name: "Skin Fade", price: 175000, duration: 60, description: "Fade dari botak sampai panjang, finishing pakai pisau cukur, line-up detail." },
-  { name: "Potong + Jenggot", price: 225000, duration: 75, description: "Signature Cut plus rapihin jenggot, handuk hangat, dan garis tepi pakai pisau." },
-  { name: "Rapihin Jenggot", price: 100000, duration: 30, description: "Bentuk, line-up, dan handuk hangat. Ditutup pakai beard oil." },
-  { name: "Buzz + Line-up", price: 90000, duration: 25, description: "Satu ukuran sisir rata, garis rambut tegas, tengkuk bersih." },
-  { name: "Potong Anak (di bawah 12)", price: 100000, duration: 30, description: "Sabar, cepat, nggak pakai nangis. Detailnya sama kayak orang dewasa." },
-  { name: "Warna / Bleaching", price: 350000, duration: 120, description: "Bleaching penuh, platinum, atau warna berani. Konsultasi dulu ya." },
+  { name: "Signature Cut", duration: 45, description: "Konsultasi, potong, keramas, dan styling. Bisa fade, taper, atau gunting." },
+  { name: "Skin Fade", duration: 60, description: "Fade dari botak sampai panjang, finishing pakai pisau cukur, line-up detail." },
+  { name: "Potong + Jenggot", duration: 75, description: "Signature Cut plus rapihin jenggot, handuk hangat, dan garis tepi pakai pisau." },
+  { name: "Rapihin Jenggot", duration: 30, description: "Bentuk, line-up, dan handuk hangat. Ditutup pakai beard oil." },
+  { name: "Buzz + Line-up", duration: 25, description: "Satu ukuran sisir rata, garis rambut tegas, tengkuk bersih." },
+  { name: "Potong Anak (di bawah 12)", duration: 30, description: "Sabar, cepat, nggak pakai nangis. Detailnya sama kayak orang dewasa." },
+  { name: "Warna / Bleaching", duration: 120, description: "Bleaching penuh, platinum, atau warna berani. Konsultasi dulu ya." },
 ];
 
 export const serviceNotes = [
+  { title: "Harga", body: "Harga ikut daftar harga Dibawah Pohon Barber. Tanya aku di WhatsApp, nanti aku kasih tahu." },
   { title: "Datang langsung", body: "Boleh, kalau kursinya lagi kosong. Tapi yang udah booking didahulukan, jadi chat dulu buat cek." },
   { title: "Telat", body: "Lewat dari 15 menit, potongannya mungkin harus dipersingkat atau digeser ke jadwal kosong berikutnya." },
   { title: "Pembayaran", body: "Tunai, QRIS, debit, dan e-wallet (GoPay, OVO, DANA)." },
@@ -71,7 +72,7 @@ export const reviews: Review[] = [
   { name: "Kevin T.", cut: "Crop bertekstur", text: "Kasih lihat satu foto, pulang persis kayak gitu. Langsung booking lagi sebelum turun dari kursi." },
   { name: "Arya P.", cut: "Potong + jenggot", text: "Santai, cepat, nggak banyak basa-basi kecuali kamu mau ngobrol. Urusan jenggot, juara." },
   { name: "Bayu S.", cut: "Low taper", text: "Udah tiga tahun langganan, sampai ikut pindah ke barbershop barunya. Itu udah cukup jelas." },
-  { name: "Reza M.", cut: "Buzz + line-up", text: "Buzz cut biasa aja kerasa detail. Garisnya bersih, tengkuknya rapi, harganya masuk." },
+  { name: "Reza M.", cut: "Buzz + line-up", text: "Buzz cut biasa aja kerasa detail. Garisnya bersih, tengkuknya rapi, awet lama." },
 ];
 
 export const visitSteps = [

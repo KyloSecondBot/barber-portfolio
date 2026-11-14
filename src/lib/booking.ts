@@ -14,7 +14,3 @@ export function bookCutLink(cutName: string, url?: string) {
   }. Kapan ada jadwal kosong?`;
   return whatsappLink(msg);
 }
-
-export function formatRupiah(n: number) {
-  return "Rp " + n.toLocaleString("id-ID");
-}

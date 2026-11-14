@@ -48,7 +48,7 @@ export function Footer() {
               {[
                 ["/work", "Galeri"],
                 ["/about", "Tentang"],
-                ["/services", "Layanan & Harga"],
+                ["/services", "Layanan"],
                 ["/book", "Booking & Kontak"],
               ].map(([href, label]) => (
                 <li key={href}>

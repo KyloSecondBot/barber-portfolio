@@ -3,14 +3,12 @@ import { BookCTA } from "@/components/BookCTA";
 import { Reveal } from "@/components/Reveal";
 import { Container, SectionLabel } from "@/components/ui";
 import { SectionTag } from "@/components/pages/SectionTag";
-import { barber, serviceNotes, services } from "@/content/site";
-import { formatRupiah, whatsappLink } from "@/lib/booking";
+import { barber, serviceNotes, services, shop } from "@/content/site";
+import { whatsappLink } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Layanan & Harga",
-  description: `Semua layanan, berapa lama pengerjaannya, dan harganya, mulai dari ${formatRupiah(
-    Math.min(...services.map((s) => s.price)),
-  )}. Potong rambut, fade, dan rapihin jenggot di ${barber.city}.`,
+  title: "Layanan",
+  description: `Semua layanan ${barber.name} di ${shop.name} dan berapa lama pengerjaannya. Potong rambut, fade, dan rapihin jenggot. Tanya harga lewat WhatsApp.`,
   alternates: { canonical: "/services" },
 };
 
@@ -20,8 +18,6 @@ const jsonLd = {
   name: `Layanan ${barber.name}`,
   itemListElement: services.map((s) => ({
     "@type": "Offer",
-    priceCurrency: "IDR",
-    price: s.price,
     itemOffered: { "@type": "Service", name: s.name, description: s.description },
   })),
 };
@@ -31,12 +27,13 @@ export default function ServicesPage() {
     <>
       <section className="bg-ink text-cream">
         <Container className="py-16 sm:py-24">
-          <SectionLabel n="00">Layanan &amp; Harga</SectionLabel>
+          <SectionLabel n="00">Layanan</SectionLabel>
           <h1 className="headline mt-5 max-w-5xl text-[clamp(3rem,10vw,8rem)]">
-            Harga, <em>jelas dari awal.</em>
+            Mau dikerjain <em>apa hari ini?</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-cream/70">
-            Biayanya berapa dan lama pengerjaannya, aku kasih tahu sebelum kamu nanya. Semua harga dalam Rupiah.
+            Ini yang bisa aku kerjain dan kira-kira berapa lama. Harga ikut daftar harga {shop.name}, jadi tanya aku
+            di WhatsApp ya.
           </p>
         </Container>
       </section>
@@ -53,10 +50,7 @@ export default function ServicesPage() {
                     <p className="mt-3 max-w-xl text-muted-2">{s.description}</p>
                   </div>
                   <div className="flex items-center justify-between gap-6 sm:flex-col sm:items-end sm:justify-start sm:gap-3 sm:text-right">
-                    <div>
-                      <p className="headline text-2xl sm:text-3xl">{formatRupiah(s.price)}</p>
-                      <p className="label mt-1 text-muted-2">{s.duration} menit</p>
-                    </div>
+                    <p className="label text-muted-2">± {s.duration} menit</p>
                     <a
                       href={whatsappLink(`Halo, Cuplis! Aku mau booking ${s.name}. Kapan ada jadwal kosong?`)}
                       target="_blank"

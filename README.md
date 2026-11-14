@@ -16,18 +16,18 @@ Open http://localhost:3000.
 
 | URL | What |
 | --- | --- |
-| `/` | Hero, selected cuts, bio teaser, how a visit works, prices, reviews, booking |
+| `/` | Hero, selected cuts, bio teaser, how a visit works, services, reviews, booking |
 | `/work` | All cuts, filter by style (`?style=fade`), loads more as you scroll |
 | `/work/[slug]` | One cut: photos, technique, "Book this cut" (pre-filled WhatsApp) |
 | `/about` | His story, approach, highlights, current shop |
-| `/services` | Prices (Rp) and durations, house rules |
+| `/services` | Services and durations (no prices: the shop sets them), house rules |
 | `/book` | WhatsApp message builder, map, hours, brand/collab contact |
 
 ## Edit content
 
 All content is in `src/content/`:
 
-- `site.ts` — name, WhatsApp number, shop, hours, services, reviews, story, highlights
+- `site.ts` — name, WhatsApp number, shop, hours, services (no prices), reviews, story, highlights
 - `cuts.ts` — the portfolio
 
 Everything marked `PLACEHOLDER` must be replaced with the barber's real details.

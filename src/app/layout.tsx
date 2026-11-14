@@ -73,7 +73,6 @@ const jsonLd = {
       sameAs: [shop.instagram],
       address: { "@type": "PostalAddress", addressLocality: barber.city, addressCountry: "ID" },
       telephone: `+${barber.whatsapp}`,
-      priceRange: "Rp 90.000 – Rp 350.000",
       openingHoursSpecification: hours
         .filter((h) => !h.closed)
         .map((h) => {

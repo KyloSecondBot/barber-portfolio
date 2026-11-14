@@ -28,7 +28,7 @@ export function BookCTA({
               Booking via WhatsApp
             </Button>
             <Button href="/services" variant="outline-light">
-              Lihat harga
+              Lihat layanan
             </Button>
           </div>
         </Reveal>

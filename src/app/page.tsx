@@ -11,7 +11,7 @@ import { barber } from "@/content/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${barber.name} — Barber di Dibawah Pohon` },
-  description: `${barber.name}, barber di ${barber.city} dengan ${barber.yearsCutting} tahun pengalaman. Lihat hasil potongan asli, cek harga, dan booking lewat WhatsApp.`,
+  description: `${barber.name}, barber di ${barber.city} dengan ${barber.yearsCutting} tahun pengalaman. Lihat hasil potongan asli, cek layanan, dan booking lewat WhatsApp.`,
   alternates: { canonical: "/" },
 };
 
