@@ -7,10 +7,10 @@ import { barber } from "@/content/site";
 import { whatsappLink } from "@/lib/booking";
 
 const nav = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/book", label: "Contact" },
+  { href: "/work", label: "Galeri" },
+  { href: "/about", label: "Tentang" },
+  { href: "/services", label: "Layanan" },
+  { href: "/book", label: "Kontak" },
 ];
 
 export function Header() {
@@ -38,13 +38,13 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="headline text-lg tracking-tight sm:text-xl" aria-label={`${barber.name}, home`}>
+        <Link href="/" className="headline text-lg tracking-tight sm:text-xl" aria-label={`Beranda ${barber.name}`}>
           {barber.firstName}
           <span className="text-brass">.</span>
           <span className="label ml-2 align-middle text-[0.6rem] text-muted">barber</span>
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Navigasi utama" className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
             <Link
               key={n.href}
@@ -67,14 +67,14 @@ export function Header() {
             data-track="book"
             className="headline rounded-md bg-brass px-4 py-2.5 text-sm tracking-normal text-ink transition-colors hover:bg-brass-hover sm:px-5"
           >
-            Book
+            Booking
           </a>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? "Tutup menu" : "Buka menu"}
             className="grid h-11 w-11 place-items-center rounded-md border border-line-dark md:hidden"
           >
             <span className="relative block h-3 w-5">
@@ -87,7 +87,7 @@ export function Header() {
 
       {open && (
         <div id="mobile-menu" className="fixed inset-x-0 top-16 bottom-0 z-40 bg-ink px-4 pt-6 md:hidden">
-          <nav aria-label="Mobile" className="flex flex-col">
+          <nav aria-label="Navigasi seluler" className="flex flex-col">
             {nav.map((n, i) => (
               <Link
                 key={n.href}

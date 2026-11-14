@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Button, Container } from "@/components/ui";
-import { barber, cuts } from "@/content/site";
+import { barber, cuts, styleLabels } from "@/content/site";
 import { whatsappLink } from "@/lib/booking";
 
-const heroChips = ["Fade", "Taper", "Crop", "Buzz", "Beard"];
+const heroChips = ["Fade", "Taper", "Crop", "Buzz", "Jenggot"];
 
 const stats = [
-  { big: String(barber.yearsCutting), label: "years cutting" },
-  { big: barber.cutsCount, label: "cuts" },
-  { big: "Fades", label: "& tapers" },
+  { big: String(barber.yearsCutting), label: "tahun motong" },
+  { big: barber.cutsCount, label: "potongan" },
+  { big: "Fade", label: "& taper" },
   { big: "JKT", label: barber.city },
 ];
 
@@ -89,12 +89,12 @@ export function Hero() {
             <h1 className="headline mt-5 text-[clamp(4rem,17vw,9.5rem)] lg:text-[clamp(5rem,9vw,9.5rem)]">
               {barber.firstName}
               <br />
-              <em>cuts.</em>
+              <em>potong.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-[clamp(1rem,2.4vw,1.2rem)] text-cream/70">
               {barber.tagline}
             </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2 text-cream/70" aria-label="Styles">
+            <ul className="mt-6 flex flex-wrap justify-center gap-2 text-cream/70" aria-label="Gaya">
               {heroChips.map((c) => (
                 <li key={c} className="chip">
                   {c}
@@ -103,10 +103,10 @@ export function Hero() {
             </ul>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Button href={whatsappLink()} external track>
-                Book on WhatsApp
+                Booking via WhatsApp
               </Button>
               <Button href="/work" variant="outline-dark">
-                See the work
+                Lihat galeri
               </Button>
             </div>
           </div>
@@ -136,7 +136,7 @@ export function Hero() {
                   className="film object-cover"
                 />
                 <span className="label absolute left-2 top-2 rounded-md bg-black/55 px-2 py-1 text-[0.6rem] text-cream backdrop-blur-sm">
-                  {cut.style}
+                  {styleLabels[cut.style]}
                 </span>
               </div>
             </div>

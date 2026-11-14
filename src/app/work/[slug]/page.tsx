@@ -10,7 +10,8 @@ import { BeforeAfter } from "@/components/work/BeforeAfter";
 import { CutGallery } from "@/components/work/CutGallery";
 import { CutNav } from "@/components/work/CutNav";
 import { bookCutLink } from "@/lib/booking";
-import { barber, cuts } from "@/content/site";
+import { barber, cuts, styleLabels } from "@/content/site";
+import { angleLabels } from "@/content/cuts";
 
 // Every cut page is prerendered from generateStaticParams, so a blocking route is fine.
 export const instant = false;
@@ -89,7 +90,7 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
                     className="film object-cover"
                   />
                   <figcaption className="label absolute top-3 left-3 rounded-md bg-black/55 px-2 py-1 text-[0.65rem] text-cream backdrop-blur-sm">
-                    {p.angle}
+                    {angleLabels[p.angle] ?? p.angle}
                   </figcaption>
                 </figure>
               ))}
@@ -101,15 +102,15 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
                 href="/work"
                 className="label -ml-1 inline-flex min-h-11 items-center px-1 text-cream/70 transition-colors hover:text-cream"
               >
-                ← All work
+                ← Semua galeri
               </Link>
 
               <Reveal className="mt-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="chip text-cream">{cut.style}</span>
+                  <span className="chip text-cream">{styleLabels[cut.style]}</span>
                   {cut.favorite && (
                     <span className="label rounded-md bg-brass px-2.5 py-1.5 text-[0.65rem] text-ink">
-                      Client favorite
+                      Favorit pelanggan
                     </span>
                   )}
                 </div>
@@ -117,13 +118,13 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
                 <h1 className="headline mt-5 text-[clamp(2.5rem,7vw,4.5rem)]">{cut.name}</h1>
 
                 <div className="mt-8 border-t border-line-dark pt-6">
-                  <SectionLabel>Technique</SectionLabel>
+                  <SectionLabel>Teknik</SectionLabel>
                   <p className="mt-3 max-w-prose text-base leading-relaxed text-cream/80 sm:text-lg">
                     {cut.technique}
                   </p>
                 </div>
 
-                <ul className="mt-6 flex flex-wrap gap-2" aria-label="Tags">
+                <ul className="mt-6 flex flex-wrap gap-2" aria-label="Tag">
                   {cut.tags.map((t) => (
                     <li key={t} className="chip text-cream/70">
                       {t}
@@ -138,9 +139,9 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
                     track
                     className="min-h-14 w-full text-base sm:w-auto sm:px-10"
                   >
-                    Book this cut
+                    Booking potongan ini
                   </Button>
-                  <p className="mt-3 text-sm text-muted">Opens WhatsApp with this style pre-filled.</p>
+                  <p className="mt-3 text-sm text-muted">Buka WhatsApp dengan nama model ini udah terisi.</p>
                 </div>
               </Reveal>
             </div>
@@ -158,9 +159,9 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
         <section className="bg-ink text-cream">
           <Container className="py-16 sm:py-24">
             <Reveal>
-              <SectionLabel>Same style</SectionLabel>
+              <SectionLabel>Gaya yang sama</SectionLabel>
               <h2 className="headline mt-4 text-[clamp(2rem,6vw,4rem)]">
-                More <em>{cut.style}</em> cuts
+                Gaya <em>{styleLabels[cut.style]}</em> lainnya
               </h2>
             </Reveal>
             <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import type { Cut } from "@/content/site";
+import { styleLabels, type Cut } from "@/content/site";
 
 /**
  * Vertical cut card: style tag, optional "Client favorite" badge.
@@ -53,11 +53,11 @@ export function CutCard({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-black/25" />
       <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3">
         <span className="label rounded-md bg-black/55 px-2 py-1 text-[0.6rem] text-cream backdrop-blur-sm">
-          {cut.style}
+          {styleLabels[cut.style]}
         </span>
         {cut.favorite && (
           <span className="label rounded-md bg-cream px-2 py-1 text-[0.6rem] text-ink">
-            Client favorite
+            Favorit pelanggan
           </span>
         )}
       </div>

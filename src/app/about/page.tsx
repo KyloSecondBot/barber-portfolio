@@ -9,29 +9,30 @@ import { barberPhotos } from "@/content/cuts";
 import { barber, highlights, shop, story } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `${barber.name} has been cutting hair in ${barber.city} for ${barber.yearsCutting} years. His story, his approach to fades and tapers, and where to find him now.`,
+  title: "Tentang",
+  description: `${barber.name} udah motong rambut di ${barber.city} selama ${barber.yearsCutting} tahun. Ceritanya, cara dia ngerjain fade dan taper, dan di mana kamu bisa ketemu dia sekarang.`,
   alternates: { canonical: "/about" },
 };
 
-const numberWords = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
-const yearsWord = numberWords[barber.yearsCutting] ?? String(barber.yearsCutting);
+const numberWords = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas", "dua belas"];
+const rawYearsWord = numberWords[barber.yearsCutting] ?? String(barber.yearsCutting);
+const yearsWord = rawYearsWord.charAt(0).toUpperCase() + rawYearsWord.slice(1);
 
 const principles = [
   {
     n: "01",
-    title: "Consult first",
-    body: "Five minutes of talk before the clippers come out. How your hair grows, how you style it, how often you cut.",
+    title: "Ngobrol dulu",
+    body: "Lima menit ngobrol sebelum clipper nyala. Arah tumbuh rambutmu, cara kamu styling, dan seberapa sering kamu potong.",
   },
   {
     n: "02",
-    title: "Cut for day fourteen",
-    body: "A fade should still look right two weeks later, not only when you leave the chair. I cut for the grow-out.",
+    title: "Potong buat hari keempat belas",
+    body: "Fade yang bagus harus tetap rapi dua minggu kemudian, bukan cuma pas turun dari kursi. Aku motong dengan mikirin tumbuhnya.",
   },
   {
     n: "03",
-    title: "Clean finish",
-    body: "Razor edges, a proper wash and a quick lesson on styling it at home, so you can repeat it tomorrow morning.",
+    title: "Finishing bersih",
+    body: "Garis tepi pakai pisau cukur, keramas yang bener, dan tips styling di rumah, biar besok pagi kamu bisa nata sendiri.",
   },
 ];
 
@@ -42,19 +43,19 @@ export default function AboutPage() {
       <section className="bg-ink text-cream">
         <Container className="grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
-            <SectionLabel n="00">About</SectionLabel>
+            <SectionLabel n="00">Tentang</SectionLabel>
             <h1 className="headline mt-5 text-[clamp(2.75rem,9vw,7rem)]">
-              {yearsWord} years, <em>one chair at a time.</em>
+              {yearsWord} tahun, <em>satu kursi tiap kali.</em>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-cream/70">
-              I&apos;m {barber.firstName}. I cut fades and tapers in {barber.city}, and I would rather do a few cuts
-              properly than many quickly.
+              Aku {barber.firstName}. Aku motong fade dan taper di {barber.city}. Aku lebih suka ngerjain sedikit
+              potongan sampai bener-bener rapi daripada banyak tapi buru-buru.
             </p>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-line-dark pt-6">
               {[
-                ["Years cutting", String(barber.yearsCutting)],
-                ["Cuts", barber.cutsCount],
-                ["City", barber.city],
+                ["Tahun motong", String(barber.yearsCutting)],
+                ["Potongan", barber.cutsCount],
+                ["Kota", barber.city],
               ].map(([k, v]) => (
                 <div key={k}>
                   <dd className="headline text-2xl sm:text-4xl">{v}</dd>
@@ -67,11 +68,11 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-2">
               <Image
                 src={barberPhotos.portrait}
-                alt={`Portrait of ${barber.name}, barber in ${barber.city}`}
+                alt={barberPhotos.portraitAlt}
                 fill
                 priority
                 sizes="(min-width: 1024px) 560px, 100vw"
-                className="film object-cover"
+                className="film object-cover object-center"
               />
             </div>
           </div>
@@ -82,9 +83,9 @@ export default function AboutPage() {
       <section className="border-t border-line-dark bg-ink text-cream">
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionLabel n="01">My story</SectionLabel>
+            <SectionLabel n="01">Ceritaku</SectionLabel>
             <h2 className="headline mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
-              A note from <em>{barber.firstName}.</em>
+              Catatan dari <em>{barber.firstName}.</em>
             </h2>
             <div className="mt-10 max-w-2xl space-y-6 text-lg leading-relaxed text-cream/80">
               <p>{story.start}</p>
@@ -105,9 +106,9 @@ export default function AboutPage() {
       <section className="bg-cream text-ink">
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionTag n="02">How I work</SectionTag>
+            <SectionTag n="02">Cara kerjaku</SectionTag>
             <h2 className="headline mt-5 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)]">
-              Three rules, <em>every chair.</em>
+              Tiga aturan, <em>tiap kursi.</em>
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
@@ -126,9 +127,9 @@ export default function AboutPage() {
       <section className="bg-ink text-cream">
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionLabel n="03">Highlights</SectionLabel>
+            <SectionLabel n="03">Pencapaian</SectionLabel>
             <h2 className="headline mt-5 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)]">
-              Along <em>the way.</em>
+              Sepanjang <em>jalan.</em>
             </h2>
           </Reveal>
           <ol className="mt-12 border-t border-line-dark">
@@ -145,37 +146,49 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* At work */}
+      {/* Two photos: off the clock + in the chair. Source files are 9:16, so crop to 4:5 to keep the corner watermark out of frame. */}
       <section className="bg-ink text-cream">
-        <figure>
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-2 sm:aspect-[16/9] lg:aspect-[21/9]">
-            <Image
-              src={barberPhotos.atWork}
-              alt={`${barber.firstName} working on a fade at the chair`}
-              fill
-              sizes="100vw"
-              className="film object-cover"
-            />
+        <Container className="pb-20 sm:pb-28">
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:gap-6">
+            <figure>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-2">
+                <Image
+                  src={barberPhotos.street}
+                  alt={barberPhotos.streetAlt}
+                  fill
+                  sizes="(min-width: 896px) 432px, 50vw"
+                  className="film object-cover object-center"
+                />
+              </div>
+              <figcaption className="label mt-3 text-muted">Di luar jam kerja</figcaption>
+            </figure>
+            <figure>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-2">
+                <Image
+                  src={barberPhotos.portrait}
+                  alt={barberPhotos.portraitAlt}
+                  fill
+                  sizes="(min-width: 896px) 432px, 50vw"
+                  className="film object-cover object-center"
+                />
+              </div>
+              <figcaption className="label mt-3 text-muted">Di kursi · {shop.name}</figcaption>
+            </figure>
           </div>
-          <Container>
-            <figcaption className="label py-4 text-muted">
-              {barber.firstName}, mid-fade · {shop.name}
-            </figcaption>
-          </Container>
-        </figure>
+        </Container>
       </section>
 
       {/* Where to find me now */}
       <section className="bg-cream text-ink">
         <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <SectionTag n="04">Where to find me now</SectionTag>
+            <SectionTag n="04">Lokasi</SectionTag>
             <h2 className="headline mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
-              The brand is me. <em>The shop is where I am.</em>
+              Mereknya aku. <em>Barbershop-nya cuma tempatku.</em>
             </h2>
             <p className="mt-6 max-w-xl text-lg text-muted-2">
-              Shops change, the way I cut doesn&apos;t. Right now you&apos;ll find me at {shop.name}. If that ever
-              moves, this page and my WhatsApp will always have the latest.
+              Tempat bisa pindah, cara aku motong nggak. Sekarang kamu bisa ketemu aku di {shop.name}. Kalau suatu
+              saat pindah, halaman ini dan WhatsApp-ku selalu yang paling baru.
             </p>
             <address className="mt-8 not-italic">
               <p className="headline text-2xl">{shop.name}</p>
@@ -183,15 +196,15 @@ export default function AboutPage() {
             </address>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={shop.instagram} external variant="outline-light">
-                Shop Instagram {shop.handle} ↗
+                Instagram Dibawah Pohon {shop.handle} ↗
               </Button>
               <Button href="/book" variant="primary">
-                Book a time
+                Booking jadwal
               </Button>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="label text-muted-2">Opening hours</p>
+            <p className="label text-muted-2">Jam buka</p>
             <HoursTable tone="light" className="mt-4" />
           </Reveal>
         </Container>

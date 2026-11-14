@@ -7,9 +7,9 @@ export function VisitSteps() {
     <section className="bg-ink text-cream">
       <Container className="py-16 sm:py-24">
         <Reveal>
-          <SectionLabel>How a visit works</SectionLabel>
+          <SectionLabel>Alur datang ke kursi</SectionLabel>
           <h2 className="headline mt-4 max-w-3xl text-[clamp(2.5rem,7vw,5.5rem)]">
-            Three steps, <em>no surprises.</em>
+            Tiga langkah, <em>tanpa ribet.</em>
           </h2>
         </Reveal>
         <ol className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">

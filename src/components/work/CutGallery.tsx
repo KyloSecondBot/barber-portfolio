@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
+import { angleLabels } from "@/content/cuts";
 
 type Photo = { src: string; alt: string; angle: string };
 
@@ -26,21 +27,21 @@ export function CutGallery({ photos, className = "" }: { photos: Photo[]; classN
   }
 
   return (
-    <div className={className} role="region" aria-roledescription="carousel" aria-label="Cut photos">
+    <div className={className} role="region" aria-roledescription="carousel" aria-label="Foto potongan">
       <div className="relative">
         <ul
           ref={track}
           onScroll={onScroll}
           className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain"
           tabIndex={0}
-          aria-label="Swipe to see more angles"
+          aria-label="Geser buat lihat sudut lain"
         >
           {photos.map((p, i) => (
             <li
               key={p.src + i}
               className="relative aspect-[4/5] w-full shrink-0 snap-center bg-ink-2"
               aria-roledescription="slide"
-              aria-label={`${i + 1} of ${photos.length}: ${p.angle}`}
+              aria-label={`${i + 1} dari ${photos.length}: ${angleLabels[p.angle] ?? p.angle}`}
             >
               <Image
                 src={p.src}
@@ -55,7 +56,7 @@ export function CutGallery({ photos, className = "" }: { photos: Photo[]; classN
         </ul>
         <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-3">
           <span className="label rounded-md bg-black/55 px-2 py-1 text-[0.65rem] text-cream backdrop-blur-sm">
-            {photos[index]?.angle}
+            {photos[index] ? (angleLabels[photos[index].angle] ?? photos[index].angle) : null}
           </span>
           <span className="label rounded-md bg-black/55 px-2 py-1 text-[0.65rem] text-cream backdrop-blur-sm" aria-hidden="true">
             {index + 1} / {photos.length}
@@ -70,7 +71,7 @@ export function CutGallery({ photos, className = "" }: { photos: Photo[]; classN
               key={p.src + i}
               type="button"
               onClick={() => goTo(i)}
-              aria-label={`Show ${p.angle} photo`}
+              aria-label={`Tampilkan foto ${angleLabels[p.angle] ?? p.angle}`}
               aria-current={i === index}
               className="grid h-11 w-11 place-items-center"
             >

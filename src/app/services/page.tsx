@@ -7,17 +7,17 @@ import { barber, serviceNotes, services } from "@/content/site";
 import { formatRupiah, whatsappLink } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Services & prices",
-  description: `Every service, how long it takes and what it costs, from ${formatRupiah(
+  title: "Layanan & Harga",
+  description: `Semua layanan, berapa lama pengerjaannya, dan harganya, mulai dari ${formatRupiah(
     Math.min(...services.map((s) => s.price)),
-  )}. Haircuts, fades and beard work in ${barber.city}.`,
+  )}. Potong rambut, fade, dan rapihin jenggot di ${barber.city}.`,
   alternates: { canonical: "/services" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  name: `${barber.name} services`,
+  name: `Layanan ${barber.name}`,
   itemListElement: services.map((s) => ({
     "@type": "Offer",
     priceCurrency: "IDR",
@@ -31,19 +31,19 @@ export default function ServicesPage() {
     <>
       <section className="bg-ink text-cream">
         <Container className="py-16 sm:py-24">
-          <SectionLabel n="00">Services &amp; prices</SectionLabel>
+          <SectionLabel n="00">Layanan &amp; Harga</SectionLabel>
           <h1 className="headline mt-5 max-w-5xl text-[clamp(3rem,10vw,8rem)]">
-            Prices, <em>up front.</em>
+            Harga, <em>jelas dari awal.</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-cream/70">
-            What it costs and how long it takes, before you ask. All prices in Rupiah.
+            Biayanya berapa dan lama pengerjaannya, aku kasih tahu sebelum kamu nanya. Semua harga dalam Rupiah.
           </p>
         </Container>
       </section>
 
       <section className="bg-cream text-ink">
         <Container className="py-16 sm:py-24">
-          <SectionTag n="01">The list</SectionTag>
+          <SectionTag n="01">Daftar layanan</SectionTag>
           <ul className="mt-8 border-t border-line-light">
             {services.map((s) => (
               <li key={s.name} className="border-b border-line-light py-7 sm:py-8">
@@ -55,16 +55,16 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-between gap-6 sm:flex-col sm:items-end sm:justify-start sm:gap-3 sm:text-right">
                     <div>
                       <p className="headline text-2xl sm:text-3xl">{formatRupiah(s.price)}</p>
-                      <p className="label mt-1 text-muted-2">{s.duration} min</p>
+                      <p className="label mt-1 text-muted-2">{s.duration} menit</p>
                     </div>
                     <a
-                      href={whatsappLink(`Hi ${barber.firstName}, I'd like to book a ${s.name}. When are you free?`)}
+                      href={whatsappLink(`Halo, Cuplis! Aku mau booking ${s.name}. Kapan ada jadwal kosong?`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-track="book"
                       className="label inline-flex min-h-11 items-center rounded-md border border-ink/40 px-4 text-ink transition-colors hover:border-ink hover:bg-ink/5"
                     >
-                      Book<span className="sr-only"> {s.name} on WhatsApp</span>
+                      Booking<span className="sr-only"> {s.name} lewat WhatsApp</span>
                       <span aria-hidden="true">&nbsp;↗</span>
                     </a>
                   </div>
@@ -78,9 +78,9 @@ export default function ServicesPage() {
       <section className="bg-ink text-cream">
         <Container className="py-16 sm:py-24">
           <Reveal>
-            <SectionLabel n="02">Good to know</SectionLabel>
+            <SectionLabel n="02">Perlu kamu tahu</SectionLabel>
             <h2 className="headline mt-5 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)]">
-              The small print, <em>made short.</em>
+              Aturan mainnya, <em>singkat aja.</em>
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2">

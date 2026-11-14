@@ -30,14 +30,14 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(barber.siteUrl),
   title: {
-    default: `${barber.name} — Barber in ${barber.city}`,
-    template: `%s — ${barber.name}, Barber`,
+    default: `${barber.name} — Barber di ${shop.name}`,
+    template: `%s — ${barber.name}`,
   },
-  description: `${barber.tagline} Book on WhatsApp.`,
+  description: `${barber.tagline} Booking via WhatsApp.`,
   openGraph: {
     type: "website",
     siteName: `${barber.name} Barber`,
-    locale: "en_US",
+    locale: "id_ID",
   },
   twitter: { card: "summary_large_image" },
 };
@@ -75,9 +75,10 @@ const jsonLd = {
       telephone: `+${barber.whatsapp}`,
       priceRange: "Rp 90.000 – Rp 350.000",
       openingHoursSpecification: hours
-        .filter((h) => h.open !== "Closed")
+        .filter((h) => !h.closed)
         .map((h) => {
-          const [opens, closes] = h.open.split(" – ");
+          // Shown as "10.00 – 20.00"; schema.org wants "10:00".
+          const [opens, closes] = h.open.replaceAll(".", ":").split(" – ");
           return {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: dayMap[h.day],
@@ -92,7 +93,7 @@ const jsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${archivo.variable} ${instrument.variable} ${jetbrains.variable} antialiased`}
     >
       <body className="min-h-dvh flex flex-col bg-ink text-cream">
@@ -100,7 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-brass focus:text-ink focus:px-4 focus:py-2 focus:rounded-md"
         >
-          Skip to content
+          Langsung ke konten
         </a>
         <Providers>
           <Header />

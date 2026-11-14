@@ -1,6 +1,6 @@
 import type { Cut } from "./site";
 
-// PLACEHOLDER photos (Unsplash) until the barber's own cuts are shot.
+// PLACEHOLDER photos (Unsplash) until Cuplis's own cuts are shot.
 // Each real cut should have 3–5 angles (front, side, back) in the same light.
 const u = (id: string) => `https://images.unsplash.com/${id}`;
 // All IDs checked (HTTP 200) on 2026-11-13.
@@ -17,125 +17,144 @@ const IMG = {
   beard2: u("photo-1630827020718-3433092696e7"),
   color1: u("photo-1643191834226-ba266bf480bb"),
   color2: u("photo-1636369410360-c0ddc1714c24"),
-  portrait: u("photo-1635273051937-a0ddef9573b6"),
-  atWork: u("photo-1599351431202-1e0f0137899a"),
-  shop1: u("photo-1773904215697-e6c21fc27ac2"),
 };
 
-const shots = (name: string, srcs: string[]) =>
+/**
+ * `angle` is an internal key (the before/after slider looks for "Before");
+ * show visitors `angleLabels[angle]` instead.
+ */
+export const angleLabels: Record<string, string> = {
+  Front: "Depan",
+  Side: "Samping",
+  Back: "Belakang",
+  Detail: "Detail",
+  Before: "Sebelum",
+};
+
+const ANGLES = ["Front", "Side", "Back", "Detail", "Before"];
+const ANGLE_ALT = ["tampak depan", "tampak samping", "tampak belakang", "detail", "sebelum dipotong"];
+
+/** `desc` is the photo description without the angle, e.g. "Skin fade dengan rambut bagian atas bertekstur". */
+const shots = (desc: string, srcs: string[]) =>
   srcs.map((src, i) => ({
     src,
-    angle: ["Front", "Side", "Back", "Detail", "Before"][i] ?? "Detail",
-    alt: `${name}, ${["front", "side", "back", "detail", "before"][i] ?? "detail"} view`,
+    angle: ANGLES[i] ?? "Detail",
+    alt: `${desc}, ${ANGLE_ALT[i] ?? "detail"}`,
   }));
 
 export const cuts: Cut[] = [
   {
     slug: "skin-fade-textured-top",
-    name: "Skin Fade, Textured Top",
+    name: "Skin Fade dengan Atas Bertekstur",
     style: "fade",
     favorite: true,
-    images: shots("Skin fade with textured top", [IMG.fade1, IMG.fade2, IMG.taper1]),
-    technique: "Bald foil shaver at the bottom, blended up through 0.5 to 2 guards. Point-cut texture on top so it moves when styled with matte paste.",
-    tags: ["skin fade", "texture", "matte finish"],
+    images: shots("Skin fade dengan rambut bagian atas bertekstur", [IMG.fade1, IMG.fade2, IMG.taper1]),
+    technique: "Bagian bawah dibotakin pakai foil shaver, terus di-blend naik dari sisir 0,5 sampai 2. Atasnya di-point cut biar ada tekstur dan gerak waktu ditata pakai matte paste.",
+    tags: ["skin fade", "tekstur", "hasil matte"],
   },
   {
     slug: "low-taper-side-part",
-    name: "Low Taper, Side Part",
+    name: "Low Taper Belah Samping",
     style: "taper",
     favorite: true,
-    images: shots("Low taper with side part", [IMG.taper1, IMG.taper2, IMG.fade2]),
-    technique: "Taper kept low at the temples and nape only. Scissor-over-comb through the sides, hard part shaved in lightly with a trimmer.",
-    tags: ["low taper", "side part", "classic"],
+    images: shots("Low taper dengan belah samping", [IMG.taper1, IMG.taper2, IMG.fade2]),
+    technique: "Taper dibuat rendah, cuma di pelipis dan tengkuk. Samping dirapikan pakai teknik gunting di atas sisir, garis belahan dibuat tipis pakai trimmer.",
+    tags: ["low taper", "belah samping", "klasik"],
   },
   {
     slug: "french-crop-mid-fade",
-    name: "French Crop, Mid Fade",
+    name: "French Crop + Mid Fade",
     style: "crop",
-    images: shots("French crop with mid fade", [IMG.crop1, IMG.crop2, IMG.fade1]),
-    technique: "Mid fade set at the parietal ridge, short blunt fringe cut straight across then broken up with point cutting.",
-    tags: ["crop", "mid fade", "fringe"],
+    images: shots("French crop dengan mid fade", [IMG.crop1, IMG.crop2, IMG.fade1]),
+    technique: "Mid fade dimulai dari garis tulang kepala. Poni pendek dipotong lurus, terus dipecah pakai point cutting biar nggak kaku.",
+    tags: ["crop", "mid fade", "poni"],
   },
   {
     slug: "buzz-cut-line-up",
-    name: "Buzz Cut & Line-up",
+    name: "Buzz Cut + Line-up",
     style: "buzz",
-    images: shots("Buzz cut with sharp line-up", [IMG.buzz1, IMG.fade2, IMG.taper1]),
-    technique: "Guard 2 all over, against the grain. Hairline squared at the front and the neckline tapered so it grows out clean.",
-    tags: ["buzz", "line-up", "low maintenance"],
+    images: shots("Buzz cut dengan garis rambut tegas", [IMG.buzz1, IMG.fade2, IMG.taper1]),
+    technique: "Sisir nomor 2 rata, dipotong melawan arah tumbuh. Garis depan dibuat kotak, tengkuk di-taper biar tumbuhnya tetap rapi.",
+    tags: ["buzz", "line-up", "gampang dirawat"],
   },
   {
     slug: "beard-sculpt-taper",
-    name: "Beard Sculpt + Taper",
+    name: "Rapihin Jenggot + Taper",
     style: "beard",
     favorite: true,
-    images: shots("Sculpted beard with taper fade", [IMG.beard1, IMG.beard2, IMG.taper2]),
-    technique: "Beard tapered into the sideburns so there's no hard line between hair and beard. Cheek line set with a straight razor after a hot towel.",
-    tags: ["beard", "razor", "hot towel"],
+    images: shots("Jenggot yang dibentuk dengan potongan taper", [IMG.beard1, IMG.beard2, IMG.taper2]),
+    technique: "Jenggot di-taper nyambung ke cambang, jadi nggak ada garis kasar antara rambut dan jenggot. Garis pipi dibentuk pakai pisau cukur setelah handuk hangat.",
+    tags: ["jenggot", "pisau cukur", "handuk hangat"],
   },
   {
     slug: "textured-crop-drop-fade",
-    name: "Textured Crop, Drop Fade",
+    name: "Crop Bertekstur + Drop Fade",
     style: "crop",
-    images: shots("Textured crop with drop fade", [IMG.crop2, IMG.crop1, IMG.fade1]),
-    technique: "Fade drops behind the ear to follow the head shape. Heavy texture on top with a slight forward fringe.",
-    tags: ["drop fade", "crop", "texture"],
+    images: shots("Crop bertekstur dengan drop fade", [IMG.crop2, IMG.crop1, IMG.fade1]),
+    technique: "Fade-nya turun di belakang telinga, ngikutin bentuk kepala. Atasnya banyak tekstur dengan poni sedikit ke depan.",
+    tags: ["drop fade", "crop", "tekstur"],
   },
   {
     slug: "burst-fade-curls",
-    name: "Burst Fade, Curls",
+    name: "Burst Fade Rambut Keriting",
     style: "fade",
-    images: shots("Burst fade with curly top", [IMG.fade2, IMG.fade1, IMG.crop1]),
-    technique: "Fade bursts around the ear, back left longer. Curls cut dry, one by one, so they sit where they naturally fall.",
-    tags: ["burst fade", "curly hair", "dry cut"],
+    images: shots("Burst fade dengan rambut keriting di bagian atas", [IMG.fade2, IMG.fade1, IMG.crop1]),
+    technique: "Fade melingkar di sekitar telinga, belakangnya dibiarkan lebih panjang. Keritingnya dipotong kering satu per satu, biar jatuhnya natural.",
+    tags: ["burst fade", "rambut keriting", "potong kering"],
   },
   {
     slug: "platinum-buzz",
-    name: "Platinum Buzz",
+    name: "Buzz Cut Platinum",
     style: "color",
     favorite: true,
-    images: shots("Bleached platinum buzz cut", [IMG.color1, IMG.color2, IMG.buzz1]),
-    technique: "Two-stage lift to pale yellow, toned to platinum. Buzzed after the color so the tone stays even.",
-    tags: ["bleach", "platinum", "buzz"],
+    images: shots("Buzz cut warna pirang platinum", [IMG.color1, IMG.color2, IMG.buzz1]),
+    technique: "Bleaching dua tahap sampai kuning pucat, terus di-toning jadi platinum. Dipotong buzz setelah diwarnai biar warnanya rata.",
+    tags: ["bleaching", "platinum", "buzz"],
   },
   {
     slug: "long-layers-flow",
-    name: "Long Layers, Flow",
+    name: "Layer Rambut Panjang",
     style: "long",
-    images: shots("Long layered men's hair", [IMG.long1, IMG.taper2, IMG.crop2]),
-    technique: "Length kept to the collar, internal layers to take weight out. Sides tucked behind the ears without a visible line.",
-    tags: ["long hair", "layers", "scissor cut"],
+    images: shots("Rambut panjang berlapis", [IMG.long1, IMG.taper2, IMG.crop2]),
+    technique: "Panjang dijaga sampai kerah, layer di dalam buat ngurangin berat. Samping bisa diselipin ke belakang telinga tanpa garis kelihatan.",
+    tags: ["rambut panjang", "layer", "gunting"],
   },
   {
     slug: "high-taper-pompadour",
-    name: "High Taper, Pompadour",
+    name: "High Taper + Pompadour",
     style: "taper",
-    images: shots("High taper with pompadour", [IMG.taper2, IMG.taper1, IMG.beard2]),
-    technique: "High taper for contrast, top left long enough to blow-dry back. Finished with pomade for shine.",
-    tags: ["high taper", "pompadour", "shine"],
+    images: shots("High taper dengan pompadour", [IMG.taper2, IMG.taper1, IMG.beard2]),
+    technique: "High taper biar kontras, atasnya dibiarkan cukup panjang buat di-blow ke belakang. Finishing pakai pomade biar mengkilap.",
+    tags: ["high taper", "pompadour", "mengkilap"],
   },
   {
     slug: "full-beard-shape",
-    name: "Full Beard Shape",
+    name: "Rapihin Jenggot",
     style: "beard",
-    images: shots("Full beard shaped and lined", [IMG.beard2, IMG.beard1, IMG.fade1]),
-    technique: "Length kept, bulk taken out from the cheeks so the jaw shows. Moustache trimmed above the lip line.",
-    tags: ["full beard", "shape", "moustache"],
+    images: shots("Jenggot penuh dengan garis tepi rapi", [IMG.beard2, IMG.beard1, IMG.fade1]),
+    technique: "Panjangnya dipertahankan, volume di pipi dikurangi biar rahangnya kelihatan. Kumis dirapikan di atas garis bibir.",
+    tags: ["jenggot penuh", "bentuk", "kumis"],
   },
   {
     slug: "mid-fade-quiff",
-    name: "Mid Fade, Quiff",
+    name: "Mid Fade + Quiff",
     style: "fade",
-    images: shots("Mid fade with quiff", [IMG.fade1, IMG.taper2, IMG.crop1]),
-    technique: "Mid fade blended into scissor work on top, front left longest for a quiff with lift.",
+    images: shots("Mid fade dengan quiff", [IMG.fade1, IMG.taper2, IMG.crop1]),
+    technique: "Mid fade di-blend ke potongan gunting di atas, bagian depan dibiarkan paling panjang buat quiff yang naik.",
     tags: ["mid fade", "quiff", "volume"],
   },
 ];
 
+/** Real photos of Cuplis (supplied 2026-11-14). Both are 900×1600 portrait. */
 export const barberPhotos = {
-  portrait: IMG.portrait, // PLACEHOLDER — his portrait
-  atWork: IMG.atWork, // PLACEHOLDER — him cutting
-  shop: IMG.shop1, // PLACEHOLDER — the current shop
+  // Mirror selfie at the shop, denim jacket.
+  portrait: "/images/cuplis/cuplis-shop.jpg",
+  portraitAlt: "Cuplis berfoto di cermin Dibawah Pohon Barber, pakai jaket denim",
+  // Overhead shot lying on the pavement, white shirt.
+  street: "/images/cuplis/cuplis-street.jpg",
+  streetAlt: "Cuplis rebahan di trotoar dengan kemeja putih, difoto dari atas",
+  // Kept for the home bio teaser / about until a real at-work photo exists.
+  atWork: "/images/cuplis/cuplis-shop.jpg",
 };
 
 export function getCut(slug: string) {

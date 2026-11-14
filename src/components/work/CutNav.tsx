@@ -8,7 +8,7 @@ function NavLink({ cut, dir, dark }: { cut: Cut; dir: "prev" | "next"; dark: boo
   return (
     <Link
       href={`/work/${cut.slug}`}
-      aria-label={`${isNext ? "Next" : "Previous"} cut: ${cut.name}`}
+      aria-label={`${isNext ? "Berikutnya" : "Sebelumnya"}: ${cut.name}`}
       className={`group flex min-h-24 items-center gap-4 rounded-xl border p-3 transition-colors ${
         dark ? "border-line-dark hover:border-cream/40" : "border-line-light hover:border-ink/40"
       } ${
@@ -19,7 +19,7 @@ function NavLink({ cut, dir, dark }: { cut: Cut; dir: "prev" | "next"; dark: boo
         <Image src={photo.src} alt="" aria-hidden="true" fill sizes="64px" className="film object-cover transition-transform duration-500 group-hover:scale-105" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className={`label block ${dark ? "text-muted" : "text-muted-2"}`}>{isNext ? "Next cut →" : "← Previous cut"}</span>
+        <span className={`label block ${dark ? "text-muted" : "text-muted-2"}`}>{isNext ? "Berikutnya →" : "← Sebelumnya"}</span>
         <span className="headline mt-1 block text-lg sm:text-xl">{cut.name}</span>
       </span>
     </Link>
@@ -32,13 +32,13 @@ export function CutNav({ prev, next, tone = "light" }: { prev: Cut; next: Cut; t
   if (prev.slug === next.slug) {
     // Only two cuts in total: one link is enough.
     return (
-      <nav aria-label="More cuts" className="grid gap-3">
+      <nav aria-label="Potongan lainnya" className="grid gap-3">
         <NavLink cut={next} dir="next" dark={dark} />
       </nav>
     );
   }
   return (
-    <nav aria-label="More cuts" className="grid gap-3 sm:grid-cols-2">
+    <nav aria-label="Potongan lainnya" className="grid gap-3 sm:grid-cols-2">
       <NavLink cut={prev} dir="prev" dark={dark} />
       <NavLink cut={next} dir="next" dark={dark} />
     </nav>

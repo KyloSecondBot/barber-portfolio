@@ -10,8 +10,8 @@ import { Reviews } from "@/components/home/Reviews";
 import { barber } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: { absolute: `${barber.name} — Fades, Tapers & Beard Work in ${barber.city}` },
-  description: `${barber.name} is a ${barber.city} barber with ${barber.yearsCutting} years behind the chair. Browse real cuts, see prices and book on WhatsApp.`,
+  title: { absolute: `${barber.name} — Barber di Dibawah Pohon` },
+  description: `${barber.name}, barber di ${barber.city} dengan ${barber.yearsCutting} tahun pengalaman. Lihat hasil potongan asli, cek harga, dan booking lewat WhatsApp.`,
   alternates: { canonical: "/" },
 };
 

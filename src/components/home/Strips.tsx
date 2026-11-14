@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Marquee } from "@/components/Marquee";
-import { cuts } from "@/content/site";
+import { cuts, styleLabels } from "@/content/site";
 
-const words = ["Fade", "Taper", "Crop", "Beard", "Buzz", "Color", "Texture"];
+const words = ["Fade", "Taper", "Crop", "Jenggot", "Buzz", "Warna", "Tekstur"];
 
 /** Two moving strips on cream: cut thumbnails, then big style words (reverse). */
 export function Strips() {
   return (
-    <section className="overflow-hidden bg-cream py-10 text-ink sm:py-14" aria-label="Styles and recent cuts">
+    <section className="overflow-hidden bg-cream py-10 text-ink sm:py-14" aria-label="Gaya dan potongan terbaru">
       <Marquee duration={60}>
         {cuts.map((cut) => (
           <figure key={cut.slug} className="mr-3 w-28 shrink-0 sm:mr-4 sm:w-40">
@@ -20,7 +20,7 @@ export function Strips() {
                 className="film object-cover"
               />
             </div>
-            <figcaption className="label mt-2 text-[0.65rem] text-muted-2">{cut.style}</figcaption>
+            <figcaption className="label mt-2 text-[0.65rem] text-muted-2">{styleLabels[cut.style]}</figcaption>
           </figure>
         ))}
       </Marquee>

@@ -38,10 +38,10 @@ export function BeforeAfter({
           style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
         />
         <span className="label pointer-events-none absolute top-3 left-3 rounded-md bg-black/55 px-2 py-1 text-[0.65rem] text-cream">
-          Before
+          Sebelum
         </span>
         <span className="label pointer-events-none absolute top-3 right-3 rounded-md bg-black/55 px-2 py-1 text-[0.65rem] text-cream">
-          After
+          Sesudah
         </span>
         <div
           className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-cream"
@@ -55,7 +55,7 @@ export function BeforeAfter({
           </span>
         </div>
         <label htmlFor={id} className="sr-only">
-          Compare before and after
+          Bandingkan sebelum dan sesudah
         </label>
         <input
           id={id}
@@ -65,11 +65,11 @@ export function BeforeAfter({
           step={1}
           value={value}
           onChange={(e) => setValue(Number(e.target.value))}
-          aria-valuetext={`${value}% before, ${100 - value}% after`}
+          aria-valuetext={`${value}% sebelum, ${100 - value}% sesudah`}
           className="absolute inset-0 h-full w-full cursor-ew-resize touch-pan-y opacity-0"
         />
       </div>
-      <figcaption className="label mt-3 px-4 text-cream/60 lg:px-0">Drag to compare</figcaption>
+      <figcaption className="label mt-3 px-4 text-cream/60 lg:px-0">Geser buat bandingkan</figcaption>
     </figure>
   );
 }

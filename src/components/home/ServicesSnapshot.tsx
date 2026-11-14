@@ -10,10 +10,10 @@ export function ServicesSnapshot() {
       <Container className="py-16 sm:py-24">
         <Reveal>
           <SectionLabel n="03" className="text-ink">
-            Services
+            Layanan
           </SectionLabel>
           <h2 className="headline mt-4 max-w-3xl text-[clamp(2.5rem,7vw,5.5rem)]">
-            Fair prices, <em>fixed up front.</em>
+            Harga jelas, <em>dari awal.</em>
           </h2>
         </Reveal>
         <Reveal className="mt-10">
@@ -25,14 +25,14 @@ export function ServicesSnapshot() {
               >
                 <div className="min-w-0">
                   <p className="headline text-[clamp(1.25rem,3vw,2rem)]">{s.name}</p>
-                  <p className="label mt-2 text-muted-2">{s.duration} min</p>
+                  <p className="label mt-2 text-muted-2">{s.duration} menit</p>
                 </div>
                 <p className="shrink-0 font-mono text-[clamp(1rem,2.4vw,1.5rem)]">{formatRupiah(s.price)}</p>
               </li>
             ))}
           </ul>
           <div className="mt-8">
-            <ArrowLink href="/services">All services &amp; prices</ArrowLink>
+            <ArrowLink href="/services">Semua layanan &amp; harga</ArrowLink>
           </div>
         </Reveal>
       </Container>

@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
 import { CutCard } from "@/components/CutCard";
 import { Container } from "@/components/ui";
-import { cuts, styles, type Style } from "@/content/site";
+import { cuts, styleLabels, styles, type Style } from "@/content/site";
 
 const PAGE_SIZE = 8;
 
@@ -62,8 +62,8 @@ export function WorkGrid() {
   }
 
   const options: { value: Style | null; label: string; n: number }[] = [
-    { value: null, label: "All", n: cuts.length },
-    ...styles.map((s) => ({ value: s, label: s, n: counts[s] })),
+    { value: null, label: "Semua", n: cuts.length },
+    ...styles.map((s) => ({ value: s, label: styleLabels[s], n: counts[s] })),
   ];
 
   const outlineBtn =
@@ -75,7 +75,7 @@ export function WorkGrid() {
         <Container>
           <div
             role="group"
-            aria-label="Filter cuts by style"
+            aria-label="Filter berdasarkan gaya"
             className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 py-2 sm:mx-0 sm:px-0"
           >
             {options.map((o) => {
@@ -101,20 +101,19 @@ export function WorkGrid() {
 
       <Container className="pt-6 sm:pt-8">
         <p className="label mb-4 text-cream/60" role="status" aria-live="polite">
-          Showing {visible.length} of {filtered.length} {active ? `${active} ` : ""}
-          {filtered.length === 1 ? "cut" : "cuts"}
+          Tampil {visible.length} dari {filtered.length} gaya
         </p>
 
         {filtered.length === 0 ? (
           <div className="rounded-xl border border-line-dark px-6 py-16 text-center">
             <p className="headline text-3xl">
-              Nothing here <em>yet.</em>
+              Belum ada <em>nih.</em>
             </p>
             <p className="mx-auto mt-4 max-w-sm text-cream/70">
-              No {active} cuts have been added. Try another style or see everything.
+              Belum ada potongan {active ? `gaya ${styleLabels[active]}` : "di sini"}. Coba gaya lain atau lihat semuanya.
             </p>
             <button type="button" onClick={() => select(null)} className={`${outlineBtn} mt-6`}>
-              Show all cuts
+              Tampilkan semua
             </button>
           </div>
         ) : (
@@ -135,7 +134,7 @@ export function WorkGrid() {
         {hasMore && (
           <div ref={sentinel} className="flex justify-center pt-10">
             <button type="button" onClick={loadMore} className={outlineBtn}>
-              Load more
+              Lihat lebih banyak
             </button>
           </div>
         )}
