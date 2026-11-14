@@ -3,13 +3,13 @@ import { Reveal } from "@/components/Reveal";
 import { Button, Container, SectionLabel } from "@/components/ui";
 import { BookingForm } from "@/components/pages/BookingForm";
 import { SectionTag } from "@/components/pages/SectionTag";
-import { HoursTable } from "@/components/pages/HoursTable";
+import { ScheduleNote } from "@/components/pages/ScheduleNote";
 import { barber, shop } from "@/content/site";
 import { whatsappLink } from "@/lib/booking";
 
 export const metadata: Metadata = {
   title: "Booking & Kontak",
-  description: `Booking potong rambut sama ${barber.name} di ${shop.name} lewat WhatsApp. Jam buka, petunjuk arah, dan kontak buat brand, pemotretan, dan kelas.`,
+  description: `Booking potong rambut sama ${barber.name} di ${shop.name} lewat WhatsApp. Cek jadwal kosong, petunjuk arah, dan kontak buat brand, pemotretan, dan kelas.`,
   alternates: { canonical: "/book" },
 };
 
@@ -80,10 +80,7 @@ export default function BookPage() {
               </Button>
             </div>
           </div>
-          <div>
-            <p className="label text-muted-2">Jam buka</p>
-            <HoursTable tone="light" className="mt-4 max-w-md" />
-          </div>
+          <ScheduleNote tone="light" className="self-start" />
         </Container>
       </section>
 

@@ -4,7 +4,7 @@ import { BookCTA } from "@/components/BookCTA";
 import { Reveal } from "@/components/Reveal";
 import { Button, Container, SectionLabel } from "@/components/ui";
 import { SectionTag } from "@/components/pages/SectionTag";
-import { HoursTable } from "@/components/pages/HoursTable";
+import { ScheduleNote } from "@/components/pages/ScheduleNote";
 import { barberPhotos } from "@/content/cuts";
 import { barber, highlights, shop, story } from "@/content/site";
 
@@ -204,8 +204,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="label text-muted-2">Jam buka</p>
-            <HoursTable tone="light" className="mt-4" />
+            <ScheduleNote tone="light" />
           </Reveal>
         </Container>
       </section>

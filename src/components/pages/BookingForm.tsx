@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { hours, services } from "@/content/site";
+import { days, services } from "@/content/site";
 import { cuts } from "@/content/cuts";
 import { whatsappLink } from "@/lib/booking";
 
-const openDays = hours.filter((h) => !h.closed);
 const times = ["Pagi", "Siang", "Sore", "Malam"];
 
 const field =
@@ -71,9 +70,9 @@ export function BookingForm() {
         </label>
         <select id={`${id}-day`} className={field} value={day} onChange={(e) => setDay(e.target.value)}>
           <option value="">Hari apa aja</option>
-          {openDays.map((h) => (
-            <option key={h.day} value={h.label}>
-              {h.label} ({h.open})
+          {days.map((d) => (
+            <option key={d} value={d}>
+              {d}
             </option>
           ))}
         </select>

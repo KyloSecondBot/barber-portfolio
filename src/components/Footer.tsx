@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { barber, shop, hours } from "@/content/site";
+import { barber, shop, schedule } from "@/content/site";
 import { whatsappLink } from "@/lib/booking";
 
 export function Footer() {
@@ -31,15 +31,17 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="label text-muted">Jam buka</p>
-            <dl className="mt-3 grid grid-cols-[4.5rem_1fr] gap-y-1 text-sm text-cream/80">
-              {hours.map((h) => (
-                <div key={h.day} className="contents">
-                  <dt className="text-muted">{h.label}</dt>
-                  <dd>{h.open}</dd>
-                </div>
-              ))}
-            </dl>
+            <p className="label text-muted">Jadwal</p>
+            <p className="mt-3 text-sm leading-relaxed text-cream/70">{schedule.note}</p>
+            <a
+              href={whatsappLink(schedule.askMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="book"
+              className="label mt-3 inline-block text-brass"
+            >
+              Cek jadwal kosong ↗
+            </a>
           </div>
 
           <div>

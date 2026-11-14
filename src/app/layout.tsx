@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Providers } from "@/components/Providers";
-import { barber, shop, hours } from "@/content/site";
+import { barber, shop } from "@/content/site";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -48,11 +48,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const dayMap: Record<string, string> = {
-  Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday",
-  Fri: "Friday", Sat: "Saturday", Sun: "Sunday",
-};
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -73,18 +68,6 @@ const jsonLd = {
       sameAs: [shop.instagram],
       address: { "@type": "PostalAddress", addressLocality: barber.city, addressCountry: "ID" },
       telephone: `+${barber.whatsapp}`,
-      openingHoursSpecification: hours
-        .filter((h) => !h.closed)
-        .map((h) => {
-          // Shown as "10.00 – 20.00"; schema.org wants "10:00".
-          const [opens, closes] = h.open.replaceAll(".", ":").split(" – ");
-          return {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: dayMap[h.day],
-            opens,
-            closes,
-          };
-        }),
     },
   ],
 };

@@ -26,17 +26,14 @@ export const shop = {
   directions: "Chat aku di WhatsApp buat minta pin lokasi dan petunjuk arah.",
 };
 
-// `day` stays in English for Google's structured data; `label` is what visitors see.
-// PLACEHOLDER — confirm his real hours.
-export const hours = [
-  { day: "Mon", label: "Senin", short: "Sen", open: "Tutup", closed: true },
-  { day: "Tue", label: "Selasa", short: "Sel", open: "10.00 – 20.00", closed: false },
-  { day: "Wed", label: "Rabu", short: "Rab", open: "10.00 – 20.00", closed: false },
-  { day: "Thu", label: "Kamis", short: "Kam", open: "10.00 – 20.00", closed: false },
-  { day: "Fri", label: "Jumat", short: "Jum", open: "10.00 – 21.00", closed: false },
-  { day: "Sat", label: "Sabtu", short: "Sab", open: "09.00 – 21.00", closed: false },
-  { day: "Sun", label: "Minggu", short: "Min", open: "09.00 – 18.00", closed: false },
-];
+// No opening hours on the site: his schedule follows the shop, so clients ask on WhatsApp.
+export const schedule = {
+  note: "Jadwalku ikut jadwal Dibawah Pohon Barber dan bisa berubah. Chat aku di WhatsApp buat cek jam yang kosong.",
+  askMessage: "Halo, Cuplis! Minggu ini ada jadwal kosong kapan aja?",
+};
+
+/** Day names for the booking message builder. */
+export const days = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
 
 export type Service = {
   name: string;
