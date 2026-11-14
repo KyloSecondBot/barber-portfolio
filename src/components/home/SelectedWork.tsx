@@ -18,7 +18,7 @@ export function SelectedWork() {
               Hasil dari <em>kursiku.</em>
             </h2>
             <p className="max-w-xs text-cream/70">
-              Ketuk salah satu foto buat lihat detail dan tekniknya.
+              Ketuk salah satu foto buat lihat dari sisi lain.
             </p>
           </div>
         </Reveal>

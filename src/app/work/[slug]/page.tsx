@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { BeforeAfter } from "@/components/work/BeforeAfter";
 import { CutGallery } from "@/components/work/CutGallery";
 import { CutNav } from "@/components/work/CutNav";
-import { cuts, styleLabels } from "@/content/site";
+import { barber, cuts, shop, styleLabels } from "@/content/site";
 import { angleLabels } from "@/content/cuts";
 
 // Every cut page is prerendered from generateStaticParams, so a blocking route is fine.
@@ -27,20 +27,21 @@ export async function generateMetadata({
   const cut = cuts.find((c) => c.slug === slug);
   if (!cut) notFound();
   const first = cut.images[0];
+  const description = `${cut.name}, hasil potongan ${barber.name} di ${shop.name}.`;
   return {
     title: cut.name,
-    description: cut.technique,
+    description,
     alternates: { canonical: `/work/${cut.slug}` },
     openGraph: {
       title: cut.name,
-      description: cut.technique,
+      description,
       url: `/work/${cut.slug}`,
       images: first ? [{ url: first.src, alt: first.alt }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: cut.name,
-      description: cut.technique,
+      description,
       images: first ? [first.src] : undefined,
     },
   };
@@ -115,20 +116,6 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
 
                 <h1 className="headline mt-5 text-[clamp(2.5rem,7vw,4.5rem)]">{cut.name}</h1>
 
-                <div className="mt-10 border-t border-line-dark pt-8">
-                  <SectionLabel>Teknik</SectionLabel>
-                  <p className="mt-4 max-w-prose text-lg leading-relaxed text-cream/85 sm:text-xl sm:leading-relaxed">
-                    {cut.technique}
-                  </p>
-                </div>
-
-                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tag">
-                  {cut.tags.map((t) => (
-                    <li key={t} className="chip text-cream/70">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
               </Reveal>
             </div>
           </div>

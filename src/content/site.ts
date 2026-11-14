@@ -43,8 +43,6 @@ export type Cut = {
   name: string;
   style: Style;
   images: { src: string; alt: string; angle: string }[];
-  technique: string;
-  tags: string[];
   favorite?: boolean;
 };
 
