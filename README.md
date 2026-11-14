@@ -33,7 +33,8 @@ All content is in `src/content/`:
 - `cuts.ts` — the portfolio (cut names, photos, technique) and his own photos
 
 Everything marked `PLACEHOLDER` must be replaced with his real details.
-Cut photos are Unsplash placeholders until his own cuts are shot (see `PHOTO-PROMPTS.md`).
+Cut photos in `public/images/cuts/` are AI-generated previews (see `PHOTO-PROMPTS.md`).
+Replace them with his real cuts before launch, keeping the `<slug>-<angle>.webp` names.
 Only use client photos with their written permission (UU PDP).
 
 ## Next steps

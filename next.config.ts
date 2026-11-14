@@ -12,8 +12,6 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    // Placeholder photos come from Unsplash until the barber's own cuts are added.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },
   turbopack: {
     // A stray package-lock.json in the home folder confuses root detection.

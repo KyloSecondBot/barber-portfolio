@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Button, Container } from "@/components/ui";
 import { barber, cuts, shop, styleLabels } from "@/content/site";
 
@@ -62,14 +61,8 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <div className="mt-8 flex justify-center">
               <Button href="/work">Lihat galeri</Button>
-              <Link
-                href="/about"
-                className="label inline-flex min-h-11 items-center justify-center text-cream/70 underline decoration-cream/30 underline-offset-4 transition-colors hover:text-cream"
-              >
-                Tentang aku
-              </Link>
             </div>
           </div>
         </div>

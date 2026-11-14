@@ -57,7 +57,7 @@ export function CutCard({
         </span>
         {cut.favorite && (
           <span className="label rounded-md bg-cream px-2 py-1 text-[0.6rem] text-ink">
-            Favorit pelanggan
+            Favorit<span className="hidden lg:inline"> pelanggan</span>
           </span>
         )}
       </div>
