@@ -18,7 +18,7 @@ export default function WorkPage() {
       <section className="bg-ink text-cream">
         <Container className="pt-12 pb-8 sm:pt-20 sm:pb-12">
           <Reveal>
-            <SectionLabel>Galeri · {cuts.length} gaya</SectionLabel>
+            <SectionLabel>Galeri · {cuts.length} potongan</SectionLabel>
             <h1 className="headline mt-4 max-w-4xl text-[clamp(2.75rem,9vw,7rem)]">
               Galeri <em>potongan.</em>
             </h1>

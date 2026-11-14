@@ -24,10 +24,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    // Close on Escape, and when the window grows past the mobile breakpoint
+    // (the menu is hidden there, so the page would stay scroll-locked).
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const wide = window.matchMedia("(min-width: 768px)");
+    const onWide = () => wide.matches && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+    };
   }, [open]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
         scrolled || open
@@ -81,7 +95,9 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
+      {/* Outside <header>: its backdrop-blur would trap a fixed child inside the 64px bar. */}
       {open && (
         <div id="mobile-menu" className="fixed inset-x-0 top-16 bottom-0 z-40 bg-ink px-4 pt-6 md:hidden">
           <nav aria-label="Navigasi seluler" className="flex flex-col">
@@ -106,6 +122,6 @@ export function Header() {
           </a>
         </div>
       )}
-    </header>
+    </>
   );
 }

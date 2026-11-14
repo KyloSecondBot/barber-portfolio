@@ -37,8 +37,10 @@ export const metadata: Metadata = {
     type: "website",
     siteName: `${barber.name} Barber`,
     locale: "id_ID",
+    // Share preview: Cuplis's own photo (not a client), so the name and face match.
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${barber.name}, barber di ${shop.name}` }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
 };
 
 export const viewport: Viewport = {
@@ -74,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="id"
+      data-scroll-behavior="smooth"
       className={`${archivo.variable} ${instrument.variable} ${jetbrains.variable} antialiased`}
     >
       <body className="min-h-dvh flex flex-col bg-ink text-cream">

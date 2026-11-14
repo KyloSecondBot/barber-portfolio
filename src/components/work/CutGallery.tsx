@@ -23,6 +23,7 @@ export function CutGallery({ photos, className = "" }: { photos: Photo[]; classN
   function goTo(i: number) {
     const el = track.current;
     if (!el) return;
+    setIndex(i); // update dots and counter right away; the scroll catches up
     el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
   }
 

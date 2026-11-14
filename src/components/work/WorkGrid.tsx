@@ -101,7 +101,7 @@ export function WorkGrid() {
 
       <Container className="pt-6 sm:pt-8">
         <p className="label mb-4 text-cream/60" role="status" aria-live="polite">
-          Tampil {visible.length} dari {filtered.length} gaya
+          Tampil {visible.length} dari {filtered.length} potongan
         </p>
 
         {filtered.length === 0 ? (
