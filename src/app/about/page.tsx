@@ -9,7 +9,7 @@ import { barber, highlights, shop, story } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Tentang",
-  description: `Tentang ${barber.name}, barber ${barber.specialty.toLowerCase()} di ${barber.city}. Ceritanya, cara dia ngerjain tiap potongan, dan perjalanan yang bikin karyanya kayak gini.`,
+  description: `Tentang ${barber.name}, barber ${barber.specialty.toLowerCase()} di ${barber.city}. Cerita dan cara kerjanya.`,
   alternates: { canonical: "/about" },
 };
 
@@ -21,8 +21,8 @@ const principles = [
   },
   {
     n: "02",
-    title: "Potong buat hari keempat belas",
-    body: "Fade yang bagus harus tetap rapi dua minggu kemudian, bukan cuma pas turun dari kursi. Aku motong dengan mikirin tumbuhnya.",
+    title: "Rapi sampai dua minggu",
+    body: "Aku motong dengan mikirin tumbuhnya rambut, jadi fade-nya tetap rapi dua minggu kemudian.",
   },
   {
     n: "03",
@@ -40,11 +40,10 @@ export default function AboutPage() {
           <div className="order-2 lg:order-1">
             <SectionLabel n="00">Tentang</SectionLabel>
             <h1 className="headline mt-5 text-[clamp(2.75rem,9vw,7rem)]">
-              Satu kepala, <em>satu per satu.</em>
+              Halo, aku <em>{barber.firstName}.</em>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-cream/70">
-              Aku {barber.firstName}. Aku motong fade dan taper di {barber.city}. Halaman ini kumpulan karyaku, dan
-              cerita di balik cara aku ngerjainnya.
+              Barber di {shop.name}, {barber.city}. Aku paling sering ngerjain fade dan taper.
             </p>
             <p className="label mt-8 text-muted">
               {barber.specialty} · {barber.city}
@@ -94,7 +93,7 @@ export default function AboutPage() {
           <Reveal>
             <SectionTag n="02">Cara kerjaku</SectionTag>
             <h2 className="headline mt-5 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)]">
-              Tiga aturan, <em>tiap kursi.</em>
+              Yang selalu <em>aku lakuin.</em>
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-4 md:grid-cols-3">
@@ -115,7 +114,7 @@ export default function AboutPage() {
           <Reveal>
             <SectionLabel n="03">Pencapaian</SectionLabel>
             <h2 className="headline mt-5 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)]">
-              Sepanjang <em>jalan.</em>
+              Perjalanan <em>sejauh ini.</em>
             </h2>
           </Reveal>
           <ol className="mt-12 border-t border-line-dark">
@@ -170,7 +169,7 @@ export default function AboutPage() {
           <Reveal className="max-w-3xl">
             <SectionTag n="04">Lokasi</SectionTag>
             <h2 className="headline mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
-              Brand-nya aku. <em>Barbershop-nya cuma tempatku.</em>
+              Tempat aku <em>motong sekarang.</em>
             </h2>
             <address className="mt-8 not-italic">
               <p className="text-lg text-muted-2">Sekarang aku motong di</p>

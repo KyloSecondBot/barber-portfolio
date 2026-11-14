@@ -10,7 +10,7 @@ import { barber, shop } from "@/content/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${barber.name} — Portofolio Barber` },
-  description: `Portofolio ${barber.name}, barber di ${shop.name}. Kumpulan fade, taper, crop, jenggot, dan warna yang pernah dia kerjain, difoto dari depan, samping, dan belakang.`,
+  description: `Portofolio ${barber.name}, barber di ${shop.name}. Kumpulan fade, taper, crop, jenggot, dan warna yang pernah dia kerjain.`,
   alternates: { canonical: "/" },
 };
 
@@ -32,7 +32,7 @@ export default function Home() {
         <Container className="py-20 text-center sm:py-28 lg:py-36">
           <Reveal>
             <h2 className="headline mx-auto max-w-4xl text-[clamp(2.75rem,9vw,7rem)]">
-              Satu kepala, <em>satu cerita.</em>
+              Terima kasih <em>sudah mampir.</em>
             </h2>
             <nav aria-label="Jelajahi" className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2">
               {closingLinks.map((l) => (

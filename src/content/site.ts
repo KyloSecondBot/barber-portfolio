@@ -14,7 +14,7 @@ export const barber = {
   cutsCount: "2.000+", // PLACEHOLDER
   specialty: "Fade & taper",
   siteUrl: "https://cuplis.barber", // PLACEHOLDER — real domain
-  tagline: "Fade yang tajam. Taper yang rapi. Dipotong sepenuh hati.",
+  tagline: "Barber spesialis fade dan taper.",
 };
 
 // "Where to find me now" — the shop is a location, not the brand.
@@ -43,8 +43,8 @@ export const story = {
   training:
     "Tahun 2018 aku ambil kursus barber lengkap, terus dua tahun jadi junior di barbershop yang ramai. Tiga puluh kepala sehari, belajar langsung dari barber yang udah dua puluh tahun pegang gunting.",
   approach:
-    "Aku nggak mau ngerjain potongan yang nggak bisa aku jelasin. Sebelum clipper nyala, kita ngobrol dulu: arah tumbuh rambutmu, cara kamu styling tiap pagi, dan berapa lama jarak potongnya. Fade yang bagus harus tetap kelihatan rapi di hari keempat belas, bukan cuma pas turun dari kursi.",
-  quote: "Potongan yang bagus harus tetap rapi di hari keempat belas.",
+    "Aku nggak mau ngerjain potongan yang nggak bisa aku jelasin. Sebelum clipper nyala, kita ngobrol dulu: arah tumbuh rambutmu, cara kamu styling tiap pagi, dan berapa lama jarak potongnya. Dari situ aku baru mulai motong.",
+  quote: "Potongan yang bagus tetap rapi dua minggu kemudian.",
 };
 
 export const styles = ["fade", "taper", "crop", "buzz", "long", "beard", "color"] as const;

@@ -8,7 +8,7 @@ import { cuts } from "@/content/site";
 export const metadata: Metadata = {
   title: { absolute: "Galeri Potongan — Cuplis" },
   description:
-    "Fade, taper, crop, buzz cut, rambut panjang, jenggot, dan warna. Setiap potongan difoto dari depan, samping, dan belakang.",
+    "Galeri potongan Cuplis: fade, taper, crop, buzz cut, rambut panjang, jenggot, dan warna.",
   alternates: { canonical: "/work" },
 };
 
@@ -23,7 +23,7 @@ export default function WorkPage() {
               Mau potong <em>model apa?</em>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/70 sm:text-lg">
-              Lihat hasil potonganku dari depan, samping, sampai belakang. Kalau ada yang cocok, buka fotonya buat lihat detail dan tekniknya.
+              Semua hasil potonganku ada di sini. Buka salah satu buat lihat detail dan tekniknya.
             </p>
           </Reveal>
         </Container>

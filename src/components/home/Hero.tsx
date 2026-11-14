@@ -52,7 +52,7 @@ export function Hero() {
               <em>{barber.firstName}.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-[clamp(1rem,2.4vw,1.2rem)] text-cream/70">
-              Kumpulan potongan yang pernah aku kerjain, difoto dari depan, samping, sampai belakang.
+              Kumpulan potongan yang pernah aku kerjain.
             </p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 text-cream/70" aria-label="Gaya">
               {heroChips.map((c) => (

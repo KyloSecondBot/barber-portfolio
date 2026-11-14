@@ -15,10 +15,10 @@ export function SelectedWork() {
           <SectionLabel n="01">Karya pilihan</SectionLabel>
           <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="headline max-w-4xl text-[clamp(2.75rem,8vw,6.5rem)]">
-              Dari kursiku, <em>apa adanya.</em>
+              Hasil dari <em>kursiku.</em>
             </h2>
             <p className="max-w-xs text-cream/70">
-              Semua foto ini kepala asli, bukan stok. Tap salah satu buat lihat dari semua sisi.
+              Ketuk salah satu foto buat lihat detail dan tekniknya.
             </p>
           </div>
         </Reveal>
