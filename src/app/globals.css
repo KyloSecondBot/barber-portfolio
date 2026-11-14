@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Palette: "editorial cinema" — dark and cream sections take turns. */
+:root {
+  --ink: #121110;
+  --ink-2: #1c1a18;
+  --cream: #f3f0e8;
+  --card: #fffdf7;
+  --muted: #8a877c;
+  --muted-2: #46453f;
+  --brass: #c8a24a;
+  --brass-hover: #d8b45e;
+  --oxblood: #7a1f1f;
+  --line-dark: rgba(243, 240, 232, 0.12);
+  --line-light: rgba(18, 17, 16, 0.12);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-cream: var(--cream);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
+  --color-brass: var(--brass);
+  --color-brass-hover: var(--brass-hover);
+  --color-oxblood: var(--oxblood);
+  --color-line-dark: var(--line-dark);
+  --color-line-light: var(--line-light);
+
+  --font-sans: var(--font-archivo);
+  --font-serif: var(--font-instrument);
+  --font-mono: var(--font-jetbrains);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--tilt, 0deg)); }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+}
+
+/* Headline formula: heavy uppercase sans + one italic serif word (<em>). */
+.headline {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+.headline em,
+.serif-accent {
+  font-family: var(--font-instrument), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+/* Small spaced-out mono labels */
+.label {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.chip {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+}
+
+/* Film-still treatment for cut photos */
+.film {
+  filter: contrast(1.05) saturate(0.88);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
