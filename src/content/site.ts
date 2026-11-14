@@ -9,10 +9,6 @@ export const barber = {
   handle: "@cuplisalbern",
   instagram: "https://www.instagram.com/cuplisalbern/",
   whatsapp: "62895405518530", // international format, no "+"
-  city: "Jakarta", // PLACEHOLDER — confirm his city
-  yearsCutting: 8, // PLACEHOLDER
-  cutsCount: "2.000+", // PLACEHOLDER
-  specialty: "Fade & taper",
   siteUrl: "https://cuplis.barber", // PLACEHOLDER — real domain
   tagline: "Barber spesialis fade dan taper.",
 };
@@ -26,26 +22,7 @@ export const shop = {
   directions: "Mau mampir? Chat aku di WhatsApp buat minta pin lokasinya.",
 };
 
-// Pure portfolio: no booking, prices, hours, services or reviews on the site.
-
-// PLACEHOLDER — his real highlights.
-export const highlights = [
-  { year: "2024", title: "Finalis Jakarta Barber Battle", body: "Masuk 8 besar kategori fade." },
-  { year: "2023", title: "Pengajar tamu, Barber Academy ID", body: "Ngajar kelas dasar-dasar fade." },
-  { year: "2022", title: "Partner grooming brand streetwear lokal", body: "Potong rambut untuk dua sesi foto lookbook." },
-  { year: "2018", title: "Mulai motong", body: "Belajar di Bandung, kursi pertama di Jakarta Selatan." },
-];
-
-export const story = {
-  // PLACEHOLDER — write up from his voice note.
-  start:
-    "Aku mulai motong rambut teman-teman di garasi rumah, pakai clipper bekas yang aku beli murah. Kebanyakan hasilnya jelek. Tapi ada beberapa yang cukup bagus sampai mereka balik lagi.",
-  training:
-    "Tahun 2018 aku ambil kursus barber lengkap, terus dua tahun jadi junior di barbershop yang ramai. Tiga puluh kepala sehari, belajar langsung dari barber yang udah dua puluh tahun pegang gunting.",
-  approach:
-    "Aku nggak mau ngerjain potongan yang nggak bisa aku jelasin. Sebelum clipper nyala, kita ngobrol dulu: arah tumbuh rambutmu, cara kamu styling tiap pagi, dan berapa lama jarak potongnya. Dari situ aku baru mulai motong.",
-  quote: "Potongan yang bagus tetap rapi dua minggu kemudian.",
-};
+// Pure portfolio: no booking, prices, hours, services, reviews, story or achievements on the site.
 
 export const styles = ["fade", "taper", "crop", "buzz", "long", "beard", "color"] as const;
 export type Style = (typeof styles)[number];

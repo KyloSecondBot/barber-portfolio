@@ -20,7 +20,7 @@ export default function WorkPage() {
           <Reveal>
             <SectionLabel>Galeri · {cuts.length} gaya</SectionLabel>
             <h1 className="headline mt-4 max-w-4xl text-[clamp(2.75rem,9vw,7rem)]">
-              Mau potong <em>model apa?</em>
+              Galeri <em>potongan.</em>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/70 sm:text-lg">
               Semua hasil potonganku ada di sini. Buka salah satu buat lihat detail dan tekniknya.

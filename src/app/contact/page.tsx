@@ -7,7 +7,7 @@ import { barber, shop } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Kontak",
-  description: `Hubungi ${barber.name} untuk kolaborasi, pemotretan, kelas, atau sekadar nanya soal potongan. Paling gampang lewat Instagram atau WhatsApp.`,
+  description: `Hubungi ${barber.name} lewat Instagram atau WhatsApp.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -41,8 +41,7 @@ export default function ContactPage() {
             Mau <em>ngobrol?</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-cream/70">
-            Buat kolaborasi, pemotretan, ngajar, atau sekadar nanya soal potongan, kabarin aku lewat Instagram atau
-            WhatsApp.
+            Buat kolaborasi, pemotretan, atau nanya soal potongan, hubungi aku lewat Instagram atau WhatsApp.
           </p>
 
           <ul className="mt-12 border-t border-line-dark">
@@ -87,7 +86,7 @@ export default function ContactPage() {
           <Reveal delay={0.08}>
             <SectionTag n="02">Kolaborasi</SectionTag>
             <p className="mt-5 max-w-md text-lg text-muted-2">
-              Terbuka buat kerja bareng brand, pemotretan, dan kelas. Ceritain singkat idenya waktu kamu hubungi aku.
+              Terbuka buat kerja bareng brand dan pemotretan. Ceritain singkat idenya waktu kamu hubungi aku.
             </p>
           </Reveal>
         </Container>

@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-line-dark bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="headline text-[clamp(2.5rem,9vw,7rem)]">
-          Sampai ketemu <em>di Dibawah Pohon!</em>
+          {barber.name} <em>Barber.</em>
         </p>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-3">

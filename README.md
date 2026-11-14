@@ -20,7 +20,7 @@ Open http://localhost:3000. (`.npmrc` sets `legacy-peer-deps` for a React peer-v
 | `/` | Hero, photo strips, selected work, short bio |
 | `/work` | Galeri: all cuts, filter by style (`?style=fade`), loads more as you scroll |
 | `/work/[slug]` | One cut: photos from each angle, technique notes, tags, next/previous |
-| `/about` | His story, approach, highlights, photos, where he cuts now |
+| `/about` | Short intro, his photos, where he cuts now |
 | `/contact` | Instagram, WhatsApp, the shop's Instagram |
 
 `/book` redirects to `/contact` and `/services` to `/work` (old links).
@@ -29,7 +29,7 @@ Open http://localhost:3000. (`.npmrc` sets `legacy-peer-deps` for a React peer-v
 
 All content is in `src/content/`:
 
-- `site.ts` — name, Instagram, WhatsApp, shop, story, highlights, style names
+- `site.ts` — name, Instagram, WhatsApp, shop, style names
 - `cuts.ts` — the portfolio (cut names, photos, technique) and his own photos
 
 Everything marked `PLACEHOLDER` must be replaced with his real details.

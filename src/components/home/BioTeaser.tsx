@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { Container, SectionLabel } from "@/components/ui";
-import { barber, story } from "@/content/site";
+import { barber, shop } from "@/content/site";
 import { barberPhotos } from "@/content/cuts";
 import { ArrowLink } from "./ArrowLink";
 
@@ -25,15 +25,13 @@ export function BioTeaser() {
             Tentang
           </SectionLabel>
           <h2 className="headline mt-4 text-[clamp(2.5rem,6.5vw,5rem)]">
-            Dari garasi <em>ke kursi barber.</em>
+            Halo, aku <em>{barber.firstName}.</em>
           </h2>
-          <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-muted-2">{story.start}</p>
-          <p className="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-muted-2">{story.approach}</p>
-          <blockquote className="mt-8 border-l-2 border-brass pl-5 font-serif text-[clamp(1.75rem,4vw,2.75rem)] italic leading-tight">
-            “{story.quote}”
-          </blockquote>
+          <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-muted-2">
+            Barber di {shop.name}. Paling sering ngerjain fade dan taper.
+          </p>
           <div className="mt-8">
-            <ArrowLink href="/about">Lebih lanjut soal {barber.firstName}</ArrowLink>
+            <ArrowLink href="/about">Profil {barber.firstName}</ArrowLink>
           </div>
         </Reveal>
       </Container>

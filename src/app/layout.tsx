@@ -65,7 +65,6 @@ const jsonLd = {
       "@id": `${barber.siteUrl}/#shop`,
       name: shop.name,
       sameAs: [shop.instagram],
-      address: { "@type": "PostalAddress", addressLocality: barber.city, addressCountry: "ID" },
       telephone: `+${barber.whatsapp}`,
     },
   ],
