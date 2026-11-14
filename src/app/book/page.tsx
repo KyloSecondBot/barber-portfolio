@@ -9,7 +9,7 @@ import { whatsappLink } from "@/lib/booking";
 
 export const metadata: Metadata = {
   title: "Book & contact",
-  description: `Book a cut with ${barber.name} on WhatsApp. Shop address, opening hours and a separate contact for brands, shoots and education.`,
+  description: `Book a cut with ${barber.name} at ${shop.name} on WhatsApp. Opening hours, directions and a contact for brands, shoots and education.`,
   alternates: { canonical: "/book" },
 };
 
@@ -56,7 +56,7 @@ export default function BookPage() {
         </Container>
       </section>
 
-      {/* Map */}
+      {/* Where to find me (no public map listing, so Instagram + WhatsApp directions) */}
       <section className="border-t border-line-light bg-cream text-ink">
         <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -64,30 +64,24 @@ export default function BookPage() {
             <h2 className="headline mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
               Where I am <em>now.</em>
             </h2>
-            <address className="mt-6 not-italic">
-              <p className="headline text-2xl">{shop.name}</p>
-              <p className="mt-2 text-lg text-muted-2">
-                {shop.street}
-                <br />
-                {shop.area} {shop.postalCode}
-              </p>
-            </address>
-            <HoursTable tone="light" className="mt-8 max-w-md" />
-            <div className="mt-8">
-              <Button href={shop.mapsUrl} external variant="outline-light">
-                Open in Google Maps ↗
+            <p className="headline mt-6 text-2xl">{shop.name}</p>
+            <p className="mt-2 max-w-md text-lg text-muted-2">{shop.directions}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                href={whatsappLink(`Hi ${barber.firstName}, can you send me the location of ${shop.name}?`)}
+                external
+                variant="primary"
+              >
+                Ask for directions
+              </Button>
+              <Button href={shop.instagram} external variant="outline-light">
+                Shop Instagram {shop.handle} ↗
               </Button>
             </div>
           </div>
-          <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-ink/5 lg:aspect-auto lg:min-h-[28rem]">
-            <iframe
-              src={shop.mapEmbed}
-              title={`Map showing ${shop.name}, ${shop.street}, ${shop.area}`}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-              className="h-full w-full border-0"
-            />
+          <div>
+            <p className="label text-muted-2">Opening hours</p>
+            <HoursTable tone="light" className="mt-4 max-w-md" />
           </div>
         </Container>
       </section>
@@ -100,16 +94,17 @@ export default function BookPage() {
             Brands, shoots, <em>education.</em>
           </h2>
           <p className="mt-6 max-w-xl text-lg text-cream/70">
-            For collaborations, shoots and teaching, email works better than WhatsApp. Tell me what you have in
-            mind and when.
+            For collaborations, shoots and teaching, send a DM on Instagram or a WhatsApp starting with
+            &quot;Collab&quot;. Tell me what you have in mind and when.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={`mailto:${barber.email}?subject=${encodeURIComponent("Collab request")}`}
-              className="headline inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-brass bg-brass px-6 text-sm tracking-normal text-ink transition-colors hover:bg-brass-hover"
+            <Button
+              href={whatsappLink(`Hi ${barber.firstName}, collab request: `)}
+              external
+              variant="primary"
             >
-              Email {barber.email}
-            </a>
+              WhatsApp a collab request
+            </Button>
             <Button href={barber.instagram} external variant="outline-dark">
               Instagram {barber.handle} ↗
             </Button>

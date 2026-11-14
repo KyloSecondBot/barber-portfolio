@@ -159,7 +159,7 @@ export default function AboutPage() {
           </div>
           <Container>
             <figcaption className="label py-4 text-muted">
-              {barber.firstName}, mid-fade · {shop.area}
+              {barber.firstName}, mid-fade · {shop.name}
             </figcaption>
           </Container>
         </figure>
@@ -179,15 +179,11 @@ export default function AboutPage() {
             </p>
             <address className="mt-8 not-italic">
               <p className="headline text-2xl">{shop.name}</p>
-              <p className="mt-2 text-lg text-muted-2">
-                {shop.street}
-                <br />
-                {shop.area} {shop.postalCode}
-              </p>
+              <p className="mt-2 text-lg text-muted-2">{shop.directions}</p>
             </address>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={shop.mapsUrl} external variant="outline-light">
-                Open in Google Maps ↗
+              <Button href={shop.instagram} external variant="outline-light">
+                Shop Instagram {shop.handle} ↗
               </Button>
               <Button href="/book" variant="primary">
                 Book a time

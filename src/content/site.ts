@@ -2,33 +2,27 @@
 // Everything marked PLACEHOLDER must be replaced with the barber's real details.
 
 export const barber = {
-  name: "Raka Aditya", // PLACEHOLDER
-  firstName: "Raka", // PLACEHOLDER
-  handle: "@raka.cuts", // PLACEHOLDER
-  instagram: "https://instagram.com/raka.cuts", // PLACEHOLDER
-  whatsapp: "6281200000000", // PLACEHOLDER — international format, no "+"
-  email: "collab@raka.cuts", // PLACEHOLDER — brand and collab requests
-  city: "Jakarta",
-  yearsCutting: 8,
-  cutsCount: "2,000+",
+  name: "Cuplis",
+  fullName: "Yusuf Alansyah",
+  firstName: "Cuplis",
+  handle: "@cuplisalbern",
+  instagram: "https://www.instagram.com/cuplisalbern/",
+  whatsapp: "62895405518530", // international format, no "+"
+  city: "Jakarta", // PLACEHOLDER — confirm his city
+  yearsCutting: 8, // PLACEHOLDER
+  cutsCount: "2,000+", // PLACEHOLDER
   specialty: "Fades & tapers",
-  siteUrl: "https://raka.barber", // PLACEHOLDER
-  tagline: "Sharp fades. Clean tapers. Cut by hand in Jakarta.",
-  googleBusiness: "https://maps.google.com/?q=Jakarta", // PLACEHOLDER
+  siteUrl: "https://cuplis.barber", // PLACEHOLDER — real domain
+  tagline: "Sharp fades. Clean tapers. Cut by hand.",
 };
 
 // "Where to find me now" — the shop is a location, not the brand.
+// No public map listing, so we point to the shop's Instagram and WhatsApp for directions.
 export const shop = {
-  name: "Studio Pangkas Kemang", // PLACEHOLDER
-  street: "Jl. Kemang Raya No. 10", // PLACEHOLDER — write exactly as on Google Maps
-  area: "Kemang, Jakarta Selatan",
-  postalCode: "12730",
-  country: "ID",
-  mapsUrl: "https://maps.google.com/?q=Kemang+Raya+Jakarta", // PLACEHOLDER
-  mapEmbed:
-    "https://www.google.com/maps?q=Kemang+Raya+Jakarta&output=embed", // PLACEHOLDER
-  lat: -6.2607,
-  lng: 106.8136,
+  name: "Dibawah Pohon Barber",
+  handle: "@dibawahpohon_",
+  instagram: "https://www.instagram.com/dibawahpohon_/",
+  directions: "Message me on WhatsApp for the exact location and directions.",
 };
 
 export const hours = [

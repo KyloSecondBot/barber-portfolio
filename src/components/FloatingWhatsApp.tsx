@@ -7,7 +7,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       data-track="book"
-      aria-label="Book on WhatsApp"
+      aria-label="WhatsApp: book a cut"
       className="label fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2 rounded-full bg-cream px-5 py-3.5 font-medium text-ink shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform hover:-translate-y-0.5 sm:right-6 sm:bottom-6"
     >
       <span className="relative flex h-2 w-2">

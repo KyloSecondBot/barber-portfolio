@@ -23,15 +23,10 @@ export function Footer() {
 
           <div>
             <p className="label text-muted">Where to find me now</p>
-            <address className="mt-3 not-italic leading-relaxed text-cream/80">
-              {shop.name}
-              <br />
-              {shop.street}
-              <br />
-              {shop.area}
-            </address>
-            <a href={shop.mapsUrl} target="_blank" rel="noopener noreferrer" className="label mt-3 inline-block text-brass">
-              Open map ↗
+            <p className="mt-3 leading-relaxed text-cream/80">{shop.name}</p>
+            <p className="mt-1 text-sm text-cream/60">{shop.directions}</p>
+            <a href={shop.instagram} target="_blank" rel="noopener noreferrer" className="label mt-3 inline-block text-brass">
+              Shop Instagram {shop.handle} ↗
             </a>
           </div>
 
