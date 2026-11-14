@@ -1,41 +1,43 @@
-# Barber Portfolio
+# Cuplis — Barber Portfolio
 
-Personal portfolio site for one barber, built from the PRD "Barber Personal Portfolio Website".
-Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Motion · Lenis.
+Personal portfolio for Cuplis (Yusuf Alansyah), barber at Dibawah Pohon Barber.
+A pure portfolio: his work and his story, no booking, prices or opening hours.
+Copy is casual Indonesian. Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Motion · Lenis.
 
 ## Run it
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open http://localhost:3000. (`.npmrc` sets `legacy-peer-deps` for a React peer-version quirk.)
 
 ## Pages
 
 | URL | What |
 | --- | --- |
-| `/` | Hero, selected cuts, bio teaser, how a visit works, services, reviews, booking |
-| `/work` | All cuts, filter by style (`?style=fade`), loads more as you scroll |
-| `/work/[slug]` | One cut: photos, technique, "Book this cut" (pre-filled WhatsApp) |
-| `/about` | His story, approach, highlights, current shop |
-| `/services` | Services and durations (no prices: the shop sets them), house rules |
-| `/book` | WhatsApp message builder, map, hours, brand/collab contact |
+| `/` | Hero, photo strips, selected work, short bio |
+| `/work` | Galeri: all cuts, filter by style (`?style=fade`), loads more as you scroll |
+| `/work/[slug]` | One cut: photos from each angle, technique notes, tags, next/previous |
+| `/about` | His story, approach, highlights, photos, where he cuts now |
+| `/contact` | Instagram, WhatsApp, the shop's Instagram |
+
+`/book` redirects to `/contact` and `/services` to `/work` (old links).
 
 ## Edit content
 
 All content is in `src/content/`:
 
-- `site.ts` — name, WhatsApp number, shop, hours, services (no prices), reviews, story, highlights
-- `cuts.ts` — the portfolio
+- `site.ts` — name, Instagram, WhatsApp, shop, story, highlights, style names
+- `cuts.ts` — the portfolio (cut names, photos, technique) and his own photos
 
-Everything marked `PLACEHOLDER` must be replaced with the barber's real details.
-Photos are Unsplash placeholders until his own cuts are shot (3+ angles each, same light).
+Everything marked `PLACEHOLDER` must be replaced with his real details.
+Cut photos are Unsplash placeholders until his own cuts are shot (see `PHOTO-PROMPTS.md`).
 Only use client photos with their written permission (UU PDP).
 
 ## Next steps
 
-- Move cuts, prices and reviews to Sanity so he can upload from his phone (PRD goal: under 2 minutes).
-- Add analytics (Vercel Analytics, Plausible or Umami). Book buttons carry `data-track="book"`.
-- Hosting: Vercel Pro, Netlify or Cloudflare Pages (Vercel Hobby is non-commercial only).
+- Move cuts to Sanity so he can upload from his phone (PRD goal: under 2 minutes).
+- Add privacy-friendly analytics (Vercel Analytics, Plausible or Umami).
+- Hosting: Vercel Pro, Netlify or Cloudflare Pages.

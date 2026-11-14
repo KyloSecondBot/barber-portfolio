@@ -4,13 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { barber } from "@/content/site";
-import { whatsappLink } from "@/lib/booking";
 
 const nav = [
   { href: "/work", label: "Galeri" },
   { href: "/about", label: "Tentang" },
-  { href: "/services", label: "Layanan" },
-  { href: "/book", label: "Kontak" },
+  { href: "/contact", label: "Kontak" },
 ];
 
 export function Header() {
@@ -61,13 +59,12 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={whatsappLink()}
+            href={barber.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            data-track="book"
-            className="headline rounded-md bg-brass px-4 py-2.5 text-sm tracking-normal text-ink transition-colors hover:bg-brass-hover sm:px-5"
+            className="label hidden min-h-11 items-center rounded-md border border-line-dark px-4 text-cream/80 transition-colors hover:border-cream/50 hover:text-cream sm:inline-flex"
           >
-            Booking
+            {barber.handle} ↗
           </a>
           <button
             type="button"

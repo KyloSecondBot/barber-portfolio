@@ -4,34 +4,50 @@ import { Container, SectionLabel } from "@/components/ui";
 import { cuts } from "@/content/site";
 import { ArrowLink } from "./ArrowLink";
 
-// Client favorites first, then the rest, six in total (deterministic).
-const picks = [...cuts.filter((c) => c.favorite), ...cuts.filter((c) => !c.favorite)].slice(0, 6);
+// Client favorites first, then the rest, nine in total (deterministic).
+const picks = [...cuts.filter((c) => c.favorite), ...cuts.filter((c) => !c.favorite)].slice(0, 9);
 
 export function SelectedWork() {
   return (
     <section className="bg-ink text-cream">
-      <Container className="py-16 sm:py-24">
+      <Container className="py-16 sm:py-24 lg:py-32">
         <Reveal>
-          <SectionLabel n="01">Potongan pilihan</SectionLabel>
+          <SectionLabel n="01">Karya pilihan</SectionLabel>
           <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="headline max-w-3xl text-[clamp(2.5rem,7vw,5.5rem)]">
-              Hasil nyata, <em>bukan katalog.</em>
+            <h2 className="headline max-w-4xl text-[clamp(2.75rem,8vw,6.5rem)]">
+              Dari kursiku, <em>apa adanya.</em>
             </h2>
             <p className="max-w-xs text-cream/70">
-              Semua foto ini kepala asli dari kursiku. Tap salah satu buat lihat dari semua sisi.
+              Semua foto ini kepala asli, bukan stok. Tap salah satu buat lihat dari semua sisi.
             </p>
           </div>
         </Reveal>
-        <Reveal className="mt-10">
-          <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-            {picks.map((cut) => (
-              <li key={cut.slug}>
-                <CutCard cut={cut} sizes="(max-width: 1024px) 50vw, 33vw" />
+        <Reveal className="mt-10 sm:mt-14">
+          {/* Editorial grid: the first piece runs large, the rest follow. */}
+          <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+            {picks.map((cut, i) => (
+              <li
+                key={cut.slug}
+                className={
+                  i === 0 ? "col-span-2 lg:row-span-2 lg:[&>a]:aspect-auto lg:[&>a]:h-full" : undefined
+                }
+              >
+                <CutCard
+                  cut={cut}
+                  priority={i === 0}
+                  sizes={
+                    i === 0
+                      ? "(max-width: 1024px) 100vw, 50vw"
+                      : "(max-width: 1024px) 50vw, 25vw"
+                  }
+                />
               </li>
             ))}
           </ul>
-          <div className="mt-8">
-            <ArrowLink href="/work">Lihat semua galeri</ArrowLink>
+          <div className="mt-10 flex justify-center sm:mt-14">
+            <ArrowLink href="/work" className="text-[0.9rem]">
+              Lihat semua karya
+            </ArrowLink>
           </div>
         </Reveal>
       </Container>

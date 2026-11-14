@@ -2,15 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BookCTA } from "@/components/BookCTA";
 import { CutCard } from "@/components/CutCard";
-import { Button, Container, SectionLabel } from "@/components/ui";
+import { Container, SectionLabel } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { BeforeAfter } from "@/components/work/BeforeAfter";
 import { CutGallery } from "@/components/work/CutGallery";
 import { CutNav } from "@/components/work/CutNav";
-import { bookCutLink } from "@/lib/booking";
-import { barber, cuts, styleLabels } from "@/content/site";
+import { cuts, styleLabels } from "@/content/site";
 import { angleLabels } from "@/content/cuts";
 
 // Every cut page is prerendered from generateStaticParams, so a blocking route is fine.
@@ -67,7 +65,7 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
     <>
       <section className="bg-ink text-cream">
         <Container className="pb-16 lg:pt-10 lg:pb-24">
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+          <div className="lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-12 xl:gap-20">
             {/* Mobile: full-bleed swipe gallery, photos first */}
             <div className="-mx-4 sm:-mx-6 lg:hidden">
               {beforeShot && afterShot && (
@@ -85,7 +83,7 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
                     src={p.src}
                     alt={p.alt}
                     fill
-                    sizes="(min-width: 1280px) 600px, 50vw"
+                    sizes="(min-width: 1280px) 720px, 60vw"
                     priority={i === 0}
                     className="film object-cover"
                   />
@@ -117,32 +115,20 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
 
                 <h1 className="headline mt-5 text-[clamp(2.5rem,7vw,4.5rem)]">{cut.name}</h1>
 
-                <div className="mt-8 border-t border-line-dark pt-6">
+                <div className="mt-10 border-t border-line-dark pt-8">
                   <SectionLabel>Teknik</SectionLabel>
-                  <p className="mt-3 max-w-prose text-base leading-relaxed text-cream/80 sm:text-lg">
+                  <p className="mt-4 max-w-prose text-lg leading-relaxed text-cream/85 sm:text-xl sm:leading-relaxed">
                     {cut.technique}
                   </p>
                 </div>
 
-                <ul className="mt-6 flex flex-wrap gap-2" aria-label="Tag">
+                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tag">
                   {cut.tags.map((t) => (
                     <li key={t} className="chip text-cream/70">
                       {t}
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-10">
-                  <Button
-                    href={bookCutLink(cut.name, `${barber.siteUrl}/work/${cut.slug}`)}
-                    external
-                    track
-                    className="min-h-14 w-full text-base sm:w-auto sm:px-10"
-                  >
-                    Booking potongan ini
-                  </Button>
-                  <p className="mt-3 text-sm text-muted">Buka WhatsApp dengan nama model ini udah terisi.</p>
-                </div>
               </Reveal>
             </div>
           </div>
@@ -174,8 +160,6 @@ export default async function CutPage({ params }: { params: Promise<{ slug: stri
           </Container>
         </section>
       )}
-
-      <BookCTA />
     </>
   );
 }

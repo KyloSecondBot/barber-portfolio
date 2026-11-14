@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { barber, shop, schedule } from "@/content/site";
+import { barber, shop } from "@/content/site";
 import { whatsappLink } from "@/lib/booking";
 
 export function Footer() {
@@ -10,37 +10,22 @@ export function Footer() {
           Sampai ketemu <em>di Dibawah Pohon!</em>
         </p>
 
-        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-10 sm:grid-cols-3">
           <div>
-            <p className="label text-muted">Booking</p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" data-track="book" className="mt-3 block text-lg hover:text-brass">
-              WhatsApp ↗
-            </a>
-            <a href={barber.instagram} target="_blank" rel="noopener noreferrer" className="mt-1 block text-lg hover:text-brass">
+            <p className="label text-muted">Kontak</p>
+            <a href={barber.instagram} target="_blank" rel="noopener noreferrer" className="mt-3 block text-lg hover:text-brass">
               Instagram {barber.handle} ↗
+            </a>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-1 block text-lg hover:text-brass">
+              WhatsApp ↗
             </a>
           </div>
 
           <div>
             <p className="label text-muted">Lokasi</p>
             <p className="mt-3 leading-relaxed text-cream/80">{shop.name}</p>
-            <p className="mt-1 text-sm text-cream/60">{shop.directions}</p>
             <a href={shop.instagram} target="_blank" rel="noopener noreferrer" className="label mt-3 inline-block text-brass">
               Instagram Dibawah Pohon {shop.handle} ↗
-            </a>
-          </div>
-
-          <div>
-            <p className="label text-muted">Jadwal</p>
-            <p className="mt-3 text-sm leading-relaxed text-cream/70">{schedule.note}</p>
-            <a
-              href={whatsappLink(schedule.askMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track="book"
-              className="label mt-3 inline-block text-brass"
-            >
-              Cek jadwal kosong ↗
             </a>
           </div>
 
@@ -50,8 +35,7 @@ export function Footer() {
               {[
                 ["/work", "Galeri"],
                 ["/about", "Tentang"],
-                ["/services", "Layanan"],
-                ["/book", "Booking & Kontak"],
+                ["/contact", "Kontak"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-brass">{label}</Link>
@@ -61,7 +45,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-line-dark pt-6 pb-16 text-xs text-muted sm:flex-row sm:justify-between md:pb-0">
+        <div className="mt-16 flex flex-col gap-2 border-t border-line-dark pt-6 text-xs text-muted sm:flex-row sm:justify-between">
           <p className="label">© {barber.name} · Barber · {shop.name}</p>
           <p className="label">Foto pelanggan ditampilkan dengan izin.</p>
         </div>

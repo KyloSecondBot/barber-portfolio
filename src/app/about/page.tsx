@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { BookCTA } from "@/components/BookCTA";
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { Button, Container, SectionLabel } from "@/components/ui";
 import { SectionTag } from "@/components/pages/SectionTag";
-import { ScheduleNote } from "@/components/pages/ScheduleNote";
 import { barberPhotos } from "@/content/cuts";
 import { barber, highlights, shop, story } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Tentang",
-  description: `${barber.name} udah motong rambut di ${barber.city} selama ${barber.yearsCutting} tahun. Ceritanya, cara dia ngerjain fade dan taper, dan di mana kamu bisa ketemu dia sekarang.`,
+  description: `Tentang ${barber.name}, barber ${barber.specialty.toLowerCase()} di ${barber.city}. Ceritanya, cara dia ngerjain tiap potongan, dan perjalanan yang bikin karyanya kayak gini.`,
   alternates: { canonical: "/about" },
 };
-
-const numberWords = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas", "dua belas"];
-const rawYearsWord = numberWords[barber.yearsCutting] ?? String(barber.yearsCutting);
-const yearsWord = rawYearsWord.charAt(0).toUpperCase() + rawYearsWord.slice(1);
 
 const principles = [
   {
@@ -45,24 +40,15 @@ export default function AboutPage() {
           <div className="order-2 lg:order-1">
             <SectionLabel n="00">Tentang</SectionLabel>
             <h1 className="headline mt-5 text-[clamp(2.75rem,9vw,7rem)]">
-              {yearsWord} tahun, <em>satu kursi tiap kali.</em>
+              Satu kepala, <em>satu per satu.</em>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-cream/70">
-              Aku {barber.firstName}. Aku motong fade dan taper di {barber.city}. Aku lebih suka ngerjain sedikit
-              potongan sampai bener-bener rapi daripada banyak tapi buru-buru.
+              Aku {barber.firstName}. Aku motong fade dan taper di {barber.city}. Halaman ini kumpulan karyaku, dan
+              cerita di balik cara aku ngerjainnya.
             </p>
-            <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-line-dark pt-6">
-              {[
-                ["Tahun motong", String(barber.yearsCutting)],
-                ["Potongan", barber.cutsCount],
-                ["Kota", barber.city],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <dd className="headline text-2xl sm:text-4xl">{v}</dd>
-                  <dt className="label mt-2 text-muted">{k}</dt>
-                </div>
-              ))}
-            </dl>
+            <p className="label mt-8 text-muted">
+              {barber.specialty} · {barber.city}
+            </p>
           </div>
           <div className="order-1 lg:order-2">
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-2">
@@ -178,38 +164,44 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Where to find me now */}
+      {/* Where I cut now */}
       <section className="bg-cream text-ink">
-        <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
+        <Container className="py-20 sm:py-28">
+          <Reveal className="max-w-3xl">
             <SectionTag n="04">Lokasi</SectionTag>
             <h2 className="headline mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
-              Mereknya aku. <em>Barbershop-nya cuma tempatku.</em>
+              Brand-nya aku. <em>Barbershop-nya cuma tempatku.</em>
             </h2>
-            <p className="mt-6 max-w-xl text-lg text-muted-2">
-              Tempat bisa pindah, cara aku motong nggak. Sekarang kamu bisa ketemu aku di {shop.name}. Kalau suatu
-              saat pindah, halaman ini dan WhatsApp-ku selalu yang paling baru.
-            </p>
             <address className="mt-8 not-italic">
-              <p className="headline text-2xl">{shop.name}</p>
-              <p className="mt-2 text-lg text-muted-2">{shop.directions}</p>
+              <p className="text-lg text-muted-2">Sekarang aku motong di</p>
+              <p className="headline mt-1 text-2xl sm:text-3xl">{shop.name}</p>
+              <p className="mt-3 max-w-xl text-lg text-muted-2">{shop.directions}</p>
             </address>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={shop.instagram} external variant="outline-light">
+            <div className="mt-8">
+              <Button href={shop.instagram} external variant="outline-light" className="w-full sm:w-auto">
                 Instagram Dibawah Pohon {shop.handle} ↗
               </Button>
-              <Button href="/book" variant="primary">
-                Booking jadwal
-              </Button>
             </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <ScheduleNote tone="light" />
           </Reveal>
         </Container>
       </section>
 
-      <BookCTA />
+      {/* Quiet closing */}
+      <section className="bg-ink text-cream">
+        <Container className="py-16 sm:py-24">
+          <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <Link
+              href="/work"
+              className="headline inline-flex min-h-12 items-center text-[clamp(2rem,6vw,3.5rem)] transition-colors hover:text-brass"
+            >
+              Lihat <em>karyaku</em>&nbsp;&rarr;
+            </Link>
+            <Link href="/contact" className="label inline-flex min-h-12 items-center text-muted transition-colors hover:text-cream">
+              Mau ngobrol? Kontak &rarr;
+            </Link>
+          </Reveal>
+        </Container>
+      </section>
     </>
   );
 }

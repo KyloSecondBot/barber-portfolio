@@ -25,7 +25,7 @@ export function BioTeaser() {
             Tentang
           </SectionLabel>
           <h2 className="headline mt-4 text-[clamp(2.5rem,6.5vw,5rem)]">
-            Dari garasi, <em>jadi keahlian.</em>
+            Dari garasi, <em>jadi kerjaan.</em>
           </h2>
           <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-muted-2">{story.start}</p>
           <p className="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-muted-2">{story.approach}</p>

@@ -3,7 +3,6 @@ import { Archivo, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Providers } from "@/components/Providers";
 import { barber, shop } from "@/content/site";
 
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
     default: `${barber.name} — Barber di ${shop.name}`,
     template: `%s — ${barber.name}`,
   },
-  description: `${barber.tagline} Booking via WhatsApp.`,
+  description: `Portofolio ${barber.name}, barber di ${shop.name}. ${barber.tagline}`,
   openGraph: {
     type: "website",
     siteName: `${barber.name} Barber`,
@@ -91,7 +90,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <Footer />
-          <FloatingWhatsApp />
         </Providers>
         <script
           type="application/ld+json"

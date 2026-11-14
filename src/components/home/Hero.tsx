@@ -1,34 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button, Container } from "@/components/ui";
-import { barber, cuts, styleLabels } from "@/content/site";
-import { whatsappLink } from "@/lib/booking";
+import { barber, cuts, shop, styleLabels } from "@/content/site";
 
 const heroChips = ["Fade", "Taper", "Crop", "Buzz", "Jenggot"];
-
-const stats = [
-  { big: String(barber.yearsCutting), label: "tahun motong" },
-  { big: barber.cutsCount, label: "potongan" },
-  { big: "Fade", label: "& taper" },
-  { big: "JKT", label: barber.city },
-];
-
-function Stat({
-  big,
-  label,
-  align = "left",
-}: {
-  big: string;
-  label: string;
-  align?: "left" | "right" | "center";
-}) {
-  const a = { left: "text-left", right: "text-right", center: "text-center" }[align];
-  return (
-    <div className={a}>
-      <p className="headline text-[clamp(1.75rem,4vw,2.75rem)]">{big}</p>
-      <p className="label mt-1.5 text-muted">{label}</p>
-    </div>
-  );
-}
 
 const cards = [
   // left
@@ -69,30 +44,16 @@ export function Hero() {
         className="pointer-events-none absolute bottom-0 left-1/2 h-[520px] w-[900px] max-w-none -translate-x-1/2 translate-y-1/4 rounded-full bg-[radial-gradient(closest-side,rgba(200,162,74,0.22),transparent)]"
       />
       <Container className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-between gap-10 pb-12 pt-12 sm:pt-16 lg:gap-6 lg:pb-16 lg:pt-20">
-        <div className="relative lg:px-56">
-          {/* corner stats, desktop only */}
-          <div className="absolute left-0 top-0 hidden lg:block">
-            <Stat {...stats[0]} />
-          </div>
-          <div className="absolute right-0 top-0 hidden lg:block">
-            <Stat {...stats[1]} align="right" />
-          </div>
-          <div className="absolute bottom-0 left-0 hidden lg:block">
-            <Stat {...stats[2]} />
-          </div>
-          <div className="absolute bottom-0 right-0 hidden lg:block">
-            <Stat {...stats[3]} align="right" />
-          </div>
-
+        <div className="relative">
           <div className="text-center">
-            <p className="label text-brass">Barber · {barber.city}</p>
+            <p className="label text-brass">Portofolio · {shop.name}</p>
             <h1 className="headline mt-5 text-[clamp(4rem,17vw,9.5rem)] lg:text-[clamp(5rem,9vw,9.5rem)]">
-              {barber.firstName}
+              Karya
               <br />
-              <em>potong.</em>
+              <em>{barber.firstName}.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-[clamp(1rem,2.4vw,1.2rem)] text-cream/70">
-              {barber.tagline}
+              Kumpulan potongan yang pernah aku kerjain, difoto dari depan, samping, sampai belakang.
             </p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 text-cream/70" aria-label="Gaya">
               {heroChips.map((c) => (
@@ -101,21 +62,15 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-              <Button href={whatsappLink()} external track>
-                Booking via WhatsApp
-              </Button>
-              <Button href="/work" variant="outline-dark">
-                Lihat galeri
-              </Button>
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <Button href="/work">Lihat galeri</Button>
+              <Link
+                href="/about"
+                className="label inline-flex min-h-11 items-center justify-center text-cream/70 underline decoration-cream/30 underline-offset-4 transition-colors hover:text-cream"
+              >
+                Tentang aku
+              </Link>
             </div>
-          </div>
-
-          {/* mobile stats: 2x2 under the buttons */}
-          <div className="mx-auto mt-10 grid max-w-sm grid-cols-2 gap-x-6 gap-y-6 border-t border-line-dark pt-6 lg:hidden">
-            {stats.map((s) => (
-              <Stat key={s.label} {...s} align="center" />
-            ))}
           </div>
         </div>
 
