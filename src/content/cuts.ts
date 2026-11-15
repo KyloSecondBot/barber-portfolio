@@ -136,6 +136,25 @@ export const cuplisPhotos = [
   { src: barberPhotos.street, alt: barberPhotos.streetAlt },
 ];
 
+/** Cuplis at work (supplied 2026-11-15). Clients appear in some, so keep them only with their OK. */
+export const workPhotos = {
+  // Black and white, cutting a client's neckline. 854×1280.
+  bw: {
+    src: "/images/cuplis/cuplis-cutting-bw.jpg",
+    alt: "Foto hitam putih Cuplis sedang merapikan tengkuk pelanggan",
+  },
+  // Colour, seen in a mirror while cutting. 854×1280.
+  mirror: {
+    src: "/images/cuplis/cuplis-cutting-mirror.jpg",
+    alt: "Cuplis memotong rambut pelanggan, terlihat dari pantulan cermin",
+  },
+  // In the shop, white tee, clipper in hand. 907×1600.
+  shop: {
+    src: "/images/cuplis/cuplis-at-shop.jpg",
+    alt: "Cuplis berjalan di barbershop sambil memegang clipper",
+  },
+};
+
 export function getCut(slug: string) {
   return cuts.find((c) => c.slug === slug);
 }
