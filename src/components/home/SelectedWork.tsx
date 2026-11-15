@@ -4,8 +4,11 @@ import { Container, SectionLabel } from "@/components/ui";
 import { cuts } from "@/content/site";
 import { ArrowLink } from "./ArrowLink";
 
-// Client favorites first, then the rest, nine in total (deterministic).
-const picks = [...cuts.filter((c) => c.favorite), ...cuts.filter((c) => !c.favorite)].slice(0, 9);
+// Favorites first, then gallery order. One large card plus small ones in groups of four,
+// so the grid ends on full rows (2 columns on phones, 4 on desktop). The gallery has the rest.
+const ordered = [...cuts.filter((c) => c.favorite), ...cuts.filter((c) => !c.favorite)];
+const smalls = ordered.length > 4 ? Math.min(8, Math.floor((ordered.length - 1) / 4) * 4) : ordered.length - 1;
+const picks = ordered.slice(0, 1 + smalls);
 
 export function SelectedWork() {
   return (

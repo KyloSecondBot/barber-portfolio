@@ -1,6 +1,6 @@
 import type { Cut } from "./site";
 
-// Cuplis's real cuts: frames taken from his WhatsApp videos (480×600, 4:5), added 2026-11-15.
+// Cuplis's real cuts: frames taken from his videos (480×600, 4:5), added 2026-11-15 in two batches.
 // Files live in /public/images/cuts as <slug>-<angle>.jpg. Clients' faces show, so only use
 // photos the client has agreed to.
 
@@ -16,10 +16,22 @@ export const angleLabels: Record<string, string> = {
   Back: "Belakang",
   BackAngle: "Serong belakang",
   Detail: "Detail",
+  AngleLeft: "Serong kiri",
+  AngleRight: "Serong kanan",
   Before: "Sebelum",
 };
 
-type Angle = "Front" | "FrontAngle" | "Side" | "SideAngle" | "Back" | "BackAngle" | "Detail" | "Before";
+type Angle =
+  | "Front"
+  | "FrontAngle"
+  | "AngleLeft"
+  | "AngleRight"
+  | "Side"
+  | "SideAngle"
+  | "Back"
+  | "BackAngle"
+  | "Detail"
+  | "Before";
 const ANGLE_ALT: Record<Angle, string> = {
   Front: "tampak depan",
   FrontAngle: "tampak serong depan",
@@ -28,6 +40,8 @@ const ANGLE_ALT: Record<Angle, string> = {
   Back: "tampak belakang",
   BackAngle: "tampak serong belakang",
   Detail: "detail",
+  AngleLeft: "tampak serong kiri",
+  AngleRight: "tampak serong kanan",
   Before: "sebelum dipotong",
 };
 const FILE: Record<Angle, string> = {
@@ -38,6 +52,8 @@ const FILE: Record<Angle, string> = {
   Back: "back",
   BackAngle: "back-angle",
   Detail: "detail",
+  AngleLeft: "angle-left",
+  AngleRight: "angle-right",
   Before: "before",
 };
 
@@ -63,10 +79,31 @@ export const cuts: Cut[] = [
     images: shots("warrior-cut", "Warrior Cut", ["Side", "Front", "BackAngle"]),
   },
   {
+    // Name is descriptive until Cuplis confirms the model's name.
+    slug: "fade-bertekstur",
+    name: "Fade Bertekstur",
+    style: "fade",
+    images: shots("fade-bertekstur", "Fade Bertekstur", ["Side", "Back", "SideAngle", "Detail"]),
+  },
+  {
     slug: "wavy-fringe",
     name: "Wavy Fringe",
     style: "fringe",
     images: shots("wavy-fringe", "Wavy Fringe", ["Front", "SideAngle"]),
+  },
+  {
+    // Descriptive name until confirmed. The cape shows another shop's logo ("nø badhair."): confirm it's his cut.
+    slug: "fringe-bertekstur",
+    name: "Fringe Bertekstur",
+    style: "fringe",
+    images: shots("fringe-bertekstur", "Fringe Bertekstur", ["Front", "AngleRight", "AngleLeft"]),
+  },
+  {
+    // Descriptive name until confirmed.
+    slug: "belah-tengah",
+    name: "Belah Tengah",
+    style: "taper",
+    images: shots("belah-tengah", "Belah Tengah", ["Front"]),
   },
   {
     // A different client from the first Warrior Cut.
