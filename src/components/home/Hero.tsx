@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Button, Container } from "@/components/ui";
-import { barber, cuts, shop, styleLabels } from "@/content/site";
+import { barber, cuts, shop, styleLabels, styles } from "@/content/site";
 
-const heroChips = ["Fade", "Taper", "Crop", "Buzz", "Jenggot"];
+// Only styles that have cuts in the gallery.
+const heroChips = styles.filter((s) => cuts.some((c) => c.style === s)).map((s) => styleLabels[s]);
 
 const cards = [
   // left
@@ -25,7 +26,7 @@ const cards = [
   },
   // right
   {
-    cut: cuts[4],
+    cut: cuts[2],
     wrap: "right-0 bottom-0 z-10 w-[34vw] max-w-[200px] lg:max-w-[240px]",
     tilt: "6deg",
     delay: "-3s",

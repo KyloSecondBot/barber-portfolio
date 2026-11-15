@@ -63,7 +63,7 @@ export function WorkGrid() {
 
   const options: { value: Style | null; label: string; n: number }[] = [
     { value: null, label: "Semua", n: cuts.length },
-    ...styles.map((s) => ({ value: s, label: styleLabels[s], n: counts[s] })),
+    ...styles.filter((s) => counts[s] > 0).map((s) => ({ value: s, label: styleLabels[s], n: counts[s] })),
   ];
 
   const outlineBtn =

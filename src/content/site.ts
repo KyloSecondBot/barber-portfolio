@@ -40,11 +40,15 @@ export const story = {
   ],
 };
 
-export const styles = ["fade", "taper", "crop", "buzz", "long", "beard", "color"] as const;
+// Filter order in the gallery. Styles with no cuts are hidden, so add new ones freely.
+export const styles = ["warrior", "taper", "fringe", "short", "fade", "crop", "buzz", "long", "beard", "color"] as const;
 export type Style = (typeof styles)[number];
 
 /** Visible names for each style (filter chips and card tags). */
 export const styleLabels: Record<Style, string> = {
+  warrior: "Warrior Cut",
+  fringe: "Fringe",
+  short: "Pendek",
   fade: "Fade",
   taper: "Taper",
   crop: "Crop",

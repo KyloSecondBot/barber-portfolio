@@ -33,8 +33,9 @@ All content is in `src/content/`:
 - `cuts.ts` — the portfolio (cut names, photos, technique) and his own photos
 
 Everything marked `PLACEHOLDER` must be replaced with his real details.
-Cut photos in `public/images/cuts/` are AI-generated previews (see `PHOTO-PROMPTS.md`).
-Replace them with his real cuts before launch, keeping the `<slug>-<angle>.webp` names.
+Cut photos in `public/images/cuts/` are his real cuts, named `<slug>-<angle>.jpg`
+(angles: front, front-angle, side, side-angle, back, back-angle). To add a cut, drop the photos
+there and add an entry to `cuts.ts`; the first angle listed is the card cover.
 Only use client photos with their written permission (UU PDP).
 
 ## Next steps

@@ -9,7 +9,7 @@ import { barber, shop } from "@/content/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${barber.name} — Portofolio Barber` },
-  description: `Portofolio ${barber.name}, barber di ${shop.name}. Kumpulan fade, taper, crop, jenggot, dan warna yang pernah dia kerjain.`,
+  description: `Portofolio ${barber.name}, barber di ${shop.name}. Kumpulan potongan yang pernah dia kerjain, dari warrior cut sampai taper.`,
   alternates: { canonical: "/" },
 };
 

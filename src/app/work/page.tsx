@@ -8,7 +8,7 @@ import { cuts } from "@/content/site";
 export const metadata: Metadata = {
   title: { absolute: "Galeri Potongan — Cuplis" },
   description:
-    "Galeri potongan Cuplis: fade, taper, crop, buzz cut, rambut panjang, jenggot, dan warna.",
+    "Galeri potongan Cuplis di Dibawah Pohon Barber: warrior cut, taper, fringe, dan lainnya.",
   alternates: { canonical: "/work" },
 };
 
