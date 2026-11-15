@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
-import { Strips } from "@/components/home/Strips";
 import { SelectedWork } from "@/components/home/SelectedWork";
 import { BioTeaser } from "@/components/home/BioTeaser";
 import { Reveal } from "@/components/Reveal";
@@ -24,7 +23,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Strips />
       <SelectedWork />
       <BioTeaser />
 
