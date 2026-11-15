@@ -122,9 +122,13 @@ export const barberPhotos = {
   // Overhead shot lying on the pavement, white shirt.
   street: "/images/cuplis/cuplis-street.jpg",
   streetAlt: "Cuplis rebahan di trotoar dengan kemeja putih, difoto dari atas",
-  // Kept for the home bio teaser / about until a real at-work photo exists.
-  atWork: "/images/cuplis/cuplis-shop.jpg",
 };
+
+/** Both photos of Cuplis, in the order they rotate (PhotoSwap). Source is 9:16; the 4:5 crop keeps the corner watermark out. */
+export const cuplisPhotos = [
+  { src: barberPhotos.portrait, alt: barberPhotos.portraitAlt },
+  { src: barberPhotos.street, alt: barberPhotos.streetAlt },
+];
 
 export function getCut(slug: string) {
   return cuts.find((c) => c.slug === slug);

@@ -28,7 +28,17 @@ export const shop = {
   directions: "Mau mampir? Chat aku di WhatsApp buat minta pin lokasinya.",
 };
 
-// Pure portfolio: no booking, prices, hours, services, reviews, story or achievements on the site.
+// Pure portfolio: no booking, prices, hours, services, reviews or achievements on the site.
+
+// His own story, from his message on 2026-11-15. Keep it in his words; don't add facts.
+export const story = {
+  since: "Sejak kelas 3 SMP",
+  paragraphs: [
+    "Aku bisa sampai di titik ini awalnya cuma karena iseng. Waktu kelas 3 SMP, aku mulai nyukurin teman-teman pakai alat seadanya.",
+    "Aku juga sering lihat barber-barber di media sosial, dan hasil potongan mereka keren-keren. Dari situ aku makin tertarik dan mulai coba serius.",
+    "Itu yang aku jalanin sampai sekarang, di Dibawah Pohon Barber.",
+  ],
+};
 
 export const styles = ["fade", "taper", "crop", "buzz", "long", "beard", "color"] as const;
 export type Style = (typeof styles)[number];
